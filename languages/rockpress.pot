@@ -1,0 +1,451 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-14 18:53+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#. Name of the plugin
+#: includes/class-rockpress-customizer.php:57
+#: includes/admin/admin-page-tabs.php:51 includes/admin/admin-pages.php:40
+#: includes/admin/admin-pages.php:98 includes/admin/admin-pages.php:163
+#: includes/admin/settings/settings-rockpress.php:46
+#: includes/admin/shortcodes/class-shortcode-button.php:162
+msgid "RockPress"
+msgstr ""
+
+#: includes/class-rockpress-customizer.php:70
+msgid "Service Times"
+msgstr ""
+
+#: includes/class-rockpress-customizer.php:92
+msgid "Colors"
+msgstr ""
+
+#: includes/class-rockpress-customizer.php:93
+msgid "Here you can override some of the colors."
+msgstr ""
+
+#: includes/class-rockpress-customizer.php:109
+msgid "Background Color"
+msgstr ""
+
+#: includes/class-rockpress-customizer.php:127
+msgid "Foreground Color"
+msgstr ""
+
+#: includes/class-rockpress-import.php:83
+msgid "Pushing job to the queue..."
+msgstr ""
+
+#: includes/class-rockpress-import.php:94
+msgid "Import job has been dispatched..."
+msgstr ""
+
+#: includes/class-rockpress-import.php:124
+#: includes/class-rockpress-import.php:144
+#: includes/class-rockpress-import.php:177
+msgid "Insufficient Permissions"
+msgstr ""
+
+#: includes/class-rockpress-import.php:159
+msgid ""
+"Import is running in the background. Leaving this page will not interrupt "
+"the process."
+msgstr ""
+
+#: includes/class-rockpress-import.php:198
+msgid "Never"
+msgstr ""
+
+#: includes/class-rockpress-licenses.php:205
+#: includes/class-rockpress-licenses.php:274
+msgid "Nonce verification failed"
+msgstr ""
+
+#: includes/class-rockpress-licenses.php:205
+#: includes/class-rockpress-licenses.php:274
+msgid "Error"
+msgstr ""
+
+#: includes/admin/admin-ajax.php:41
+msgid "Failed to retrieve data from Rock."
+msgstr ""
+
+#: includes/admin/admin-ajax.php:46
+msgid "Successfully retrieved data from Rock."
+msgstr ""
+
+#: includes/admin/admin-page-tabs.php:44
+#: includes/admin/settings/settings-rock.php:201
+msgid "Rock RMS"
+msgstr ""
+
+#: includes/admin/admin-page-tabs.php:60
+#: includes/admin/settings/settings-import.php:49
+msgid "Data Import"
+msgstr ""
+
+#: includes/admin/admin-page-tabs.php:85
+msgid "Licenses"
+msgstr ""
+
+#: includes/admin/admin-page-tabs.php:111
+msgid "Rock RMS Website"
+msgstr ""
+
+#: includes/admin/admin-page-tabs.php:120
+msgid "Your Account"
+msgstr ""
+
+#: includes/admin/admin-pages.php:39
+msgid "RockPress Options"
+msgstr ""
+
+#: includes/admin/admin-pages.php:50 includes/admin/admin-pages.php:51
+#: includes/admin/admin-pages.php:101
+msgid "Welcome"
+msgstr ""
+
+#: includes/admin/admin-pages.php:61 includes/admin/admin-pages.php:62
+#: includes/admin/admin-pages.php:237
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/admin-pages.php:71 includes/admin/admin-pages.php:72
+#: includes/admin/admin-pages.php:144
+msgid "Add-ons"
+msgstr ""
+
+#: includes/admin/admin-pages.php:94
+msgid "Welcome to RockPress"
+msgstr ""
+
+#: includes/admin/admin-pages.php:96
+msgid ""
+"Thank you for using RockPress. RockPress allows you to display content from "
+"Rock RMS on your WordPress site."
+msgstr ""
+
+#: includes/admin/admin-pages.php:104
+msgid "Getting Started"
+msgstr ""
+
+#: includes/admin/admin-pages.php:125
+msgid "Widgets"
+msgstr ""
+
+#: includes/admin/admin-pages.php:126
+msgid "We have widgets to display a variety of information."
+msgstr ""
+
+#: includes/admin/admin-pages.php:131
+msgid "Service Times Widget"
+msgstr ""
+
+#: includes/admin/admin-pages.php:133
+msgid "Display service times for the selected Campus, straight from Rock RMS."
+msgstr ""
+
+#: includes/admin/admin-pages.php:136
+msgid "Campus Selector Widget"
+msgstr ""
+
+#: includes/admin/admin-pages.php:138
+msgid "Display links to each campus that is setup in Rock RMS."
+msgstr ""
+
+#: includes/admin/admin-pages.php:145
+msgid "Extend the functionality of RockPress. Coming soon..."
+msgstr ""
+
+#: includes/admin/admin-pages.php:155
+msgid "Connecting to Rock RMS"
+msgstr ""
+
+#: includes/admin/admin-pages.php:156
+msgid ""
+"Before you can use the plugin, you need to provide it with the information "
+"needed to connect to your Rock RMS site."
+msgstr ""
+
+#: includes/admin/admin-pages.php:161
+msgid "1. Create a REST Key"
+msgstr ""
+
+#: includes/admin/admin-pages.php:162
+msgid ""
+"A REST Key is created by navigating to the Security > REST Keys page of your "
+"Rock site. Click on the plus icon to create a new key."
+msgstr ""
+
+#: includes/admin/admin-pages.php:163
+msgid "You should name your key, "
+msgstr ""
+
+#: includes/admin/admin-pages.php:163
+msgid ""
+", so that it is easy to identify in the future. Click on the Generate Key "
+"button, then click Save."
+msgstr ""
+
+#: includes/admin/admin-pages.php:172
+msgid "2. Assign a Security Role"
+msgstr ""
+
+#: includes/admin/admin-pages.php:173
+msgid ""
+"Next, you will need to assign a Security Role so that the REST Key has "
+"permission to access the data inside Rock. Within Rock, navigate to Security "
+"> Security Roles. Select the Rock Administration role, then add the REST Key "
+"that you created in Step 1 to this Security Role."
+msgstr ""
+
+#: includes/admin/admin-pages.php:182
+msgid "3. Enter your REST Key information"
+msgstr ""
+
+#: includes/admin/admin-pages.php:183
+msgid ""
+"Now, you will need to visit the Rock RMS tab and fill in your REST Key "
+"information."
+msgstr ""
+
+#: includes/admin/admin-pages.php:184
+msgid "You will need to have the following information:"
+msgstr ""
+
+#: includes/admin/admin-pages.php:186
+#: includes/admin/settings/settings-rock.php:64
+msgid "The URL you use to access your Rock RMS site."
+msgstr ""
+
+#: includes/admin/admin-pages.php:187
+msgid "The REST Key that you created."
+msgstr ""
+
+#: includes/admin/admin-pages.php:189
+msgid "Enter Your REST Key"
+msgstr ""
+
+#: includes/admin/admin-pages.php:198
+msgid "4. Add some widgets"
+msgstr ""
+
+#: includes/admin/admin-pages.php:199
+msgid "You are now ready to use any of the widgets that come with RockPress."
+msgstr ""
+
+#: includes/admin/admin-pages.php:200
+msgid "Manage Widgets"
+msgstr ""
+
+#: includes/admin/admin-pages.php:206
+msgid "5. Browse our add-ons"
+msgstr ""
+
+#: includes/admin/admin-pages.php:207
+msgid ""
+"Feel free to browse our add-ons to add additional functionality to RockPress."
+msgstr ""
+
+#: includes/admin/admin-pages.php:208
+msgid "Browse Add-ons"
+msgstr ""
+
+#: includes/admin/admin-pages.php:325
+msgid "RockPress Add-ons"
+msgstr ""
+
+#: includes/admin/admin-pages.php:345
+msgid "Add-ons for RockPress will be available soon."
+msgstr ""
+
+#: includes/admin/admin-scripts.php:90
+msgid "Are you sure that you want to reset the last import time?"
+msgstr ""
+
+#: includes/admin/admin-scripts.php:103
+msgid "General question"
+msgstr ""
+
+#: includes/admin/admin-scripts.php:107
+msgid "Rock RMS API Key"
+msgstr ""
+
+#: includes/admin/admin-scripts.php:111
+msgid "I think I found a bug"
+msgstr ""
+
+#: includes/admin/admin-settings.php:89
+msgid "Deactivate License"
+msgstr ""
+
+#: includes/admin/admin-settings.php:230
+msgid "Add"
+msgstr ""
+
+#: includes/admin/admin-settings.php:247
+msgid "Edit"
+msgstr ""
+
+#: includes/admin/admin-settings.php:248
+msgid "Remove"
+msgstr ""
+
+#: includes/admin/admin-settings.php:290
+msgid "Unselected:"
+msgstr ""
+
+#: includes/admin/admin-settings.php:303
+msgid "Add To Selected"
+msgstr ""
+
+#: includes/admin/admin-settings.php:306
+msgid "Selected:"
+msgstr ""
+
+#: includes/admin/admin-settings.php:319
+msgid "Remove From Selected"
+msgstr ""
+
+#: includes/widgets/widget-campus-selector.php:27
+msgid "Display a list of your campuses with links to each one."
+msgstr ""
+
+#: includes/widgets/widget-campus-selector.php:96
+#: includes/widgets/widget-service-times.php:105
+msgid "Title:"
+msgstr ""
+
+#: includes/widgets/widget-campus-selector.php:141
+#: includes/widgets/widget-service-times.php:171
+msgid "Template not found. Please reinstall RockPress."
+msgstr ""
+
+#: includes/widgets/widget-service-times.php:27
+msgid "Displays the service times for a campus."
+msgstr ""
+
+#: includes/widgets/widget-service-times.php:109
+msgid "Campus:"
+msgstr ""
+
+#: includes/admin/settings/settings-import.php:54
+msgid "No import jobs are currently scheduled."
+msgstr ""
+
+#: includes/admin/settings/settings-import.php:59
+msgid "Scheduled to run in approximately "
+msgstr ""
+
+#: includes/admin/settings/settings-import.php:68
+msgid "Automatic Import"
+msgstr ""
+
+#: includes/admin/settings/settings-import.php:91
+msgid "Last Import"
+msgstr ""
+
+#: includes/admin/settings/settings-import.php:112
+msgid "Actions"
+msgstr ""
+
+#: includes/admin/settings/settings-import.php:142
+msgid "We will automatically import the data from RockRMS for you every hour."
+msgstr ""
+
+#: includes/admin/settings/settings-licenses.php:40
+msgid "License Keys"
+msgstr ""
+
+#: includes/admin/settings/settings-rock.php:41
+msgid "REST Key Information"
+msgstr ""
+
+#: includes/admin/settings/settings-rock.php:56
+msgid "Rock RMS URL"
+msgstr ""
+
+#: includes/admin/settings/settings-rock.php:75
+msgid "REST API Key"
+msgstr ""
+
+#: includes/admin/settings/settings-rock.php:83
+msgid "The REST API Key that you created on your Rock RMS site."
+msgstr ""
+
+#: includes/admin/settings/settings-rock.php:91
+#: includes/admin/settings/settings-rock.php:98
+msgid "Connection Test"
+msgstr ""
+
+#: includes/admin/settings/settings-rockpress.php:38
+msgid "Uninstall"
+msgstr ""
+
+#: includes/admin/settings/settings-rockpress.php:53
+#: includes/admin/settings/settings-rockpress.php:68
+msgid "Remove all of its data when the plugin is deleted."
+msgstr ""
+
+#: includes/admin/shortcodes/class-shortcode-button.php:151
+msgid "Insert"
+msgstr ""
+
+#: includes/admin/shortcodes/class-shortcode-button.php:183
+msgid "OK"
+msgstr ""
+
+#: includes/admin/shortcodes/class-shortcode-generator.php:92
+msgid "Close"
+msgstr ""
+
+#: includes/admin/shortcodes/class-shortcode-generator.php:93
+#: includes/admin/shortcodes/class-shortcode-generator.php:98
+msgid "Insert Shortcode"
+msgstr ""
+
+#: includes/admin/shortcodes/class-shortcode-generator.php:256
+msgid "- Select -"
+msgstr ""
+
+#: includes/admin/shortcodes/class-shortcode-generator.php:344
+#, php-format
+msgid "Untitled (#%s)"
+msgstr ""
+
+#: includes/admin/shortcodes/class-shortcode-generator.php:436
+msgid "Some of the shortcode options are required."
+msgstr ""
+
+#. %s: option label
+#: includes/admin/shortcodes/class-shortcode-generator.php:446
+#, php-format
+msgid "The %s option is required."
+msgstr ""
+
+#. Description of the plugin
+msgid "Display information from Rock RMS on your WordPress site."
+msgstr ""
+
+#. URI of the plugin
+msgid "http://rockpresswp.com/"
+msgstr ""
+
+#. Author of the plugin
+msgid "FireTree Design, LLC <support@firetreedesign.com>"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://firetreedesign.com/"
+msgstr ""

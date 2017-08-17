@@ -1,0 +1,139 @@
+.rockpress_tab_actions { clear: both; margin-top: 23px; margin-bottom: 10px; padding: 10px; overflow: hidden; background: #fbfbfb; border: 1px solid #e5e5e5; -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .04); box-shadow: 0 1px 1px rgba(0, 0, 0, .04); }
+.rockpress_tab_actions a { display: inline-block; }
+.rockpress_tab_actions a:not(:last-of-type) { margin-right: 10px; }
+.rockpress_tab_actions:after { content: ''; clear: both; }
+
+#rockpress_tab_container form > h3 { padding: 8px 0; font-size: 1.3em; }
+#rockpress_tab_container .notice { background: #f1f1f1; }
+#rockpress_tab_container p { max-width: 800px; }
+#rockpress_tab_container form > h2:not(:first-of-type) { margin-top: 30px; }
+
+.rockpress-radio-list { margin: 0; padding-top: 4px; }
+.rockpress-radio-list li { display: inline-block; padding-right: 15px; }
+
+@media screen and (max-width:1000px) {
+	.wp-filter .rockpress_tab_actions { float: none; position: relative; max-width: 100%; }
+	#hs-beacon > div > iframe:nth-child(2) { top: 45px !important; }
+}
+
+#rockpress-media-button:before {
+	font: 400 18px/1 dashicons;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\f308";
+}
+
+.rockpress-badge {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 140px;
+}
+.rockpress-badge img {
+	width: 100%;
+	height: auto;
+}
+
+.about-wrap.rockpress .feature-section ul { font-size: 0.85em; list-style: disc inside; padding-left: 20px; margin-bottom: 25px; }
+
+/* Add-ons
+-------------------------------------------------- */
+.rockpress-addons .rockpress-addon { box-sizing: border-box; background: #fff; border: 1px solid #ccc; float: left; padding: 15px 15px 45px 15px; position: relative; margin: 0 15px 15px 0; width: 350px; min-height: 350px; }
+.rockpress-addons .rockpress-addon .rockpress-addon-title { margin-top: 0; }
+.rockpress-addons .rockpress-addon > a > img { width: 100%; height: auto; }
+.rockpress-addons .rockpress-addon .button-secondary { position: absolute; bottom: 15px; left: 15px; }
+@media screen and (max-width:720px) {
+	.rockpress-addons .rockpress-addon { width: 100%; margin: 0 0 15px 0; }
+}
+
+/* =Primary button in shortcode tinymce dialog
+-------------------------------------------------------------- */
+.mce-primary.mce-rockpress-sc-primary button {
+  padding-right: 10px;
+  padding-left: 10px; }
+
+.mce-rockpress-sc-popup a {
+  text-decoration: underline; }
+
+.mce-rockpress-sc-popup p {
+  margin-bottom: 1em; }
+  .mce-rockpress-sc-popup p.strong {
+    font-weight: 600; }
+  .mce-rockpress-sc-popup p.no-margin {
+    margin-bottom: 0; }
+  .mce-rockpress-sc-popup p.margin-top {
+    margin-top: 1em; }
+
+.mce-rockpress-sc-popup .mce-listbox button {
+  text-overflow: ellipsis;
+  overflow: hidden !important; }
+
+/* =Shortcode button above wp_editor
+-------------------------------------------------------------- */
+@media screen and (max-width: 782px) {
+  .wp-media-buttons button.rockpress-sc-button span {
+    width: 18px !important; } }
+
+.wp-media-buttons button.rockpress-sc-button {
+  outline: none;
+  padding-left: 5px;
+  margin-right: 0; }
+  .wp-media-buttons button.rockpress-sc-button:active {
+    margin-bottom: 5px; }
+
+button.rockpress-sc-button:after {
+  position: relative;
+  display: inline-block;
+  top: -1px;
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 6px solid #777;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  margin: 0 3px 0 6px; }
+
+button.rockpress-sc-button.active:after {
+  top: -2px;
+  border-top: 0;
+  border-bottom: 6px solid #32373c; }
+
+/* =Shortcode button dropdown menu
+-------------------------------------------------------------- */
+.rockpress-sc-wrap {
+  position: relative;
+  display: inline-block;
+  margin-right: 5px; }
+
+div.rockpress-sc-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  max-height: 410px;
+  font-size: 14px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  overflow: auto;
+  overflow-x: hidden;
+  padding: 5px 0;
+  margin: -2px 0 0;
+  z-index: 1002; }
+
+div.rockpress-sc-shortcode {
+  display: block;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 6px 12px;
+  margin-bottom: 2px; }
+  div.rockpress-sc-shortcode:hover {
+    color: #fff; }
+
+/* =Shortcode tinymce dialog backdrop
+-------------------------------------------------------------- */
+/*#mce-modal-block.mce-reset.mce-fade.mce-in {
+  opacity: 0.7;
+  filter: alpha(opacity=70); }*/
