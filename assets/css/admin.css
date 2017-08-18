@@ -16,14 +16,6 @@
 	#hs-beacon > div > iframe:nth-child(2) { top: 45px !important; }
 }
 
-#rockpress-media-button:before {
-	font: 400 18px/1 dashicons;
-	speak: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	content: "\f308";
-}
-
 .rockpress-badge {
 	position: absolute;
 	top: 0;
