@@ -159,7 +159,100 @@ class RockPress_Rock_REST_API {
 			),
 			'timeout' => 300,
 		);
+
 		$response = wp_remote_get( $get_url, $get_args );
+
+		// Return false if there was an error.
+		if ( is_wp_error( $response ) ) {
+			return false;
+		}
+
+		// Grab the body from the response.
+		$rock_data = wp_remote_retrieve_body( $response );
+
+		// Save the transient data according to the $cache_lifespan.
+		if ( $args['cache_lifespan'] > 0 ) {
+			$this->transient_fallback->set_transient( $transient_name, $rock_data, $args['cache_lifespan'] );
+		}
+
+		$endpoint = strtolower( $args['endpoint'] );
+		do_action( "rockpress_after_rock_get_{$endpoint}", $rock_data, $args );
+
+		if ( true === $args['raw_response'] ) {
+			return $response;
+		}
+
+		// Free up the memory.
+		unset( $response );
+
+		return $rock_data;
+
+	}
+
+	/**
+	 * POST data to Rock
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $args Arguments.
+	 *
+	 * @return	string	JSON string containing the data.
+	 */
+	public function post( $args = array() ) {
+
+		if ( false === $this->is_connected() ) {
+			return false;
+		}
+
+		$defaults = array(
+			'endpoint'			=> null,
+			'id'				=> null,
+			'body'				=> null,
+			'cache_lifespan'	=> null,
+			'refresh_cache'		=> 0,
+			'raw_response'		=> false,
+		);
+		$args = wp_parse_args( $args, $defaults );
+
+		// Construct the URL.
+		$url = trailingslashit( $this->domain ) . $args['endpoint'];
+
+		// If there is an ID, then add it to the URL.
+		if ( ! is_null( $args['id'] ) ) {
+			$url = trailingslashit( $url ) . $args['id'];
+		}
+
+		// If no $cache_lifespan is specified, then retrive it from the filter.
+		if ( is_null( $args['cache_lifespan'] ) ) {
+			$args['cache_lifespan'] = apply_filters( 'rockpress_cache_' . strtolower( $args['endpoint'] ), 60 );
+		}
+
+		// Setup our variables.
+		$transient_name = md5( $url . $args['body'] );
+		$rock_data = false;
+
+		// Check the transient cache if the cache is not set to 0.
+		if ( $args['cache_lifespan'] > 0 && 0 === $args['refresh_cache'] ) {
+			$rock_data = $this->transient_fallback->get_transient( $transient_name, 'rockpress_schedule_get', $args );
+		}
+
+		// Check for a cached copy in the transient data.
+		if ( false !== $rock_data ) {
+			return $rock_data;
+		}
+
+		$post_args = array(
+			'headers' => array(
+				'Authorization-Token' => $this->rest_key,
+			),
+			'timeout' => 300,
+		);
+
+		if ( ! is_null( $args['body'] ) ) {
+			$post_args['body'] = $args['body'];
+		}
+
+		$response = wp_safe_remote_post( $url, $post_args );
 
 		// Return false if there was an error.
 		if ( is_wp_error( $response ) ) {
