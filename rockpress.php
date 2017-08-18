@@ -3,7 +3,7 @@
  * Plugin Name: RockPress
  * Plugin URI: http://rockpresswp.com/
  * Description: Display information from Rock RMS on your WordPress site.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: FireTree Design, LLC <support@firetreedesign.com>
  * Author URI: https://firetreedesign.com/
  * Text Domain: rockpress
@@ -66,7 +66,7 @@ if ( ! class_exists( 'RockPress' ) ) :
 	     * @var string
 	     * @since 1.0.0
 	     */
-	    public $version = '1.0.0';
+	    public $version = '1.0.1';
 
 		/**
 	     * Main RockPress Instance
