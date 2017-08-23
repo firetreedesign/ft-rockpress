@@ -38,7 +38,7 @@ class RockPress_Settings_Rock extends RockPress_Settings {
 		// First, we register a section. This is necessary since all future options must belong to one.
 		add_settings_section(
 			'rockpress_settings_rock_section',
-			__( 'REST Key Information', 'rockpress' ),
+			__( 'REST Key Information', 'ft-rockpress' ),
 			array( $this, 'rock_section_callback' ),
 			'rockpress_settings_rock'
 		);
@@ -53,7 +53,7 @@ class RockPress_Settings_Rock extends RockPress_Settings {
 		 */
 		add_settings_field(
 			'domain',
-			'<strong>' . __('Rock RMS URL', 'rockpress') . '</strong>',
+			'<strong>' . __('Rock RMS URL', 'ft-rockpress') . '</strong>',
 			array( $this, 'input_callback' ),
 			'rockpress_settings_rock',
 			'rockpress_settings_rock_section',
@@ -61,7 +61,7 @@ class RockPress_Settings_Rock extends RockPress_Settings {
 				'field_id'	=> 'domain',
 				'page_id'	=> 'rockpress_rock',
 	            'size'		=> 'regular',
-				'label'		=> __( 'The URL you use to access your Rock RMS site.', 'rockpress' ),
+				'label'		=> __( 'The URL you use to access your Rock RMS site.', 'ft-rockpress' ),
 	            'before'	=> null,
 	            'after'		=> null,
 			)
@@ -72,7 +72,7 @@ class RockPress_Settings_Rock extends RockPress_Settings {
 		 */
 		add_settings_field(
 			'rest_key',
-			'<strong>' . __( 'REST API Key', 'rockpress' ) . '</strong>',
+			'<strong>' . __( 'REST API Key', 'ft-rockpress' ) . '</strong>',
 			array( $this, 'input_callback' ),
 			'rockpress_settings_rock',
 			'rockpress_settings_rock_section',
@@ -80,7 +80,7 @@ class RockPress_Settings_Rock extends RockPress_Settings {
 				'field_id'  => 'rest_key',
 				'page_id'   => 'rockpress_rock',
 	            'size'      => 'regular',
-				'label'		=> __( 'The REST API Key that you created on your Rock RMS site.', 'rockpress' ),
+				'label'		=> __( 'The REST API Key that you created on your Rock RMS site.', 'ft-rockpress' ),
 			)
 		);
 
@@ -95,7 +95,7 @@ class RockPress_Settings_Rock extends RockPress_Settings {
 
 			add_settings_field(
 	            'check_connection',
-	            '<strong>' . __( 'Connection Test', 'rockpress' ) . '</strong>',
+	            '<strong>' . __( 'Connection Test', 'ft-rockpress' ) . '</strong>',
 	            array( $this, 'text_callback' ),
 	            'rockpress_settings_rock',
 	            'rockpress_settings_rock_connection_section',
@@ -125,7 +125,7 @@ class RockPress_Settings_Rock extends RockPress_Settings {
 	 * @return void
 	 */
 	public function rock_section_callback() {
-	    echo '<p>' . esc_html( 'These are the settings for the REST API connection to Rock RMS.', 'rockpress' ) . '</p>';
+	    echo '<p>' . esc_html( 'These are the settings for the REST API connection to Rock RMS.', 'ft-rockpress' ) . '</p>';
 	}
 
 	/**
@@ -136,7 +136,7 @@ class RockPress_Settings_Rock extends RockPress_Settings {
 	 * @return void
 	 */
 	public function connection_section_callback() {
-	    echo '<p>' . esc_html( 'Use this tool to test the connection to your Rock RMS site.', 'rockpress' ) . '</p>';
+	    echo '<p>' . esc_html( 'Use this tool to test the connection to your Rock RMS site.', 'ft-rockpress' ) . '</p>';
 	}
 
 	/**
@@ -198,7 +198,7 @@ class RockPress_Settings_Rock extends RockPress_Settings {
 		$help_tabs[] = array(
 			'id'		=> 'rockpress-rock',
 			'tab_id'	=> 'rock',
-			'title'		=> __( 'Rock RMS', 'rockpress' ),
+			'title'		=> __( 'Rock RMS', 'ft-rockpress' ),
 			'content'	=> $content,
 		);
 

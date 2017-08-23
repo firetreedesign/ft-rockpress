@@ -80,7 +80,7 @@ class RockPress_Import {
 	 * @return void
 	 */
 	public static function import_job_queued( $job ) {
-		update_option( 'rockpress_import_in_progress', __( 'Pushing job to the queue...', 'rockpress' ) );
+		update_option( 'rockpress_import_in_progress', __( 'Pushing job to the queue...', 'ft-rockpress' ) );
 	}
 
 	/**
@@ -91,7 +91,7 @@ class RockPress_Import {
 	 * @return void
 	 */
 	public static function import_jobs_dispatched() {
-		update_option( 'rockpress_import_in_progress', __( 'Import job has been dispatched...', 'rockpress' ) );
+		update_option( 'rockpress_import_in_progress', __( 'Import job has been dispatched...', 'ft-rockpress' ) );
 	}
 
 	/**
@@ -121,7 +121,7 @@ class RockPress_Import {
 	public static function ajax_run() {
 
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'rockpress-nonce' ) ) {
-			die( esc_html__( 'Insufficient Permissions', 'rockpress' ) );
+			die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
 		}
 
 		self::run();
@@ -141,7 +141,7 @@ class RockPress_Import {
 	public static function ajax_status() {
 
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'rockpress-nonce' ) ) {
-			die( esc_html__( 'Insufficient Permissions', 'rockpress' ) );
+			die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
 		}
 
 		$status = array();
@@ -156,7 +156,7 @@ class RockPress_Import {
 			'element'	=> 'strong',
 		) );
 		array_push( $status, array(
-			'text'		=> esc_html__( 'Import is running in the background. Leaving this page will not interrupt the process.', 'rockpress' ),
+			'text'		=> esc_html__( 'Import is running in the background. Leaving this page will not interrupt the process.', 'ft-rockpress' ),
 			'element'	=> 'i',
 		) );
 
@@ -174,7 +174,7 @@ class RockPress_Import {
 	public static function ajax_last_import() {
 
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'rockpress-nonce' ) ) {
-			die( esc_html__( 'Insufficient Permissions', 'rockpress' ) );
+			die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
 		}
 
 		$last_import = get_option( 'rockpress_last_import', 'Never' );

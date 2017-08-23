@@ -148,7 +148,7 @@ final class RockPress_Shortcode_Button {
 						$shortcode,
 						sprintf( '%s %s %s',
 							$img,
-							esc_html__( 'Insert', 'rockpress' ),
+							esc_html__( 'Insert', 'ft-rockpress' ),
 							self::$shortcodes[ $shortcode ]['label']
 						)
 					);
@@ -159,7 +159,7 @@ final class RockPress_Shortcode_Button {
 						'<div class="rockpress-sc-menu mce-menu">%s</div>' .
 						'</div>',
 						$img,
-						esc_html__( 'RockPress', 'rockpress' ),
+						esc_html__( 'RockPress', 'ft-rockpress' ),
 						implode( '', array_values( $shortcodes ) )
 					);
 				}
@@ -180,7 +180,7 @@ final class RockPress_Shortcode_Button {
 		if ( $shortcode && array_key_exists( $shortcode, self::$shortcodes ) ) {
 			$data = self::$shortcodes[ $shortcode ];
 			if ( ! empty( $data['errors'] ) ) {
-				$data['btn_okay'] = array( esc_html__( 'OK', 'rockpress' ) );
+				$data['btn_okay'] = array( esc_html__( 'OK', 'ft-rockpress' ) );
 			}
 			$response = array(
 				'body'      => $data['fields'],

@@ -35,7 +35,7 @@ class RockPress_Settings_RockPress extends RockPress_Settings {
 	    // First, we register a section. This is necessary since all future options must belong to one.
 		add_settings_section(
 			'rockpress_settings_uninstall_section',
-			__( 'Uninstall', 'rockpress' ),
+			__( 'Uninstall', 'ft-rockpress' ),
 			array( $this, 'rockpress_uninstall_section_callback' ),
 			'rockpress_settings'
 		);
@@ -43,14 +43,14 @@ class RockPress_Settings_RockPress extends RockPress_Settings {
 	    // The Remove Data field.
 		add_settings_field(
 			'remove_data',
-			'<strong>' . __('RockPress', 'rockpress') . '</strong>',
+			'<strong>' . __( 'RockPress', 'ft-rockpress' ) . '</strong>',
 			array( $this, 'checkbox_callback' ),
 			'rockpress_settings',
 			'rockpress_settings_uninstall_section',
 			array(
 				'field_id'  => 'remove_data',
 				'page_id'   => 'rockpress_settings',
-				'label'     => __( 'Remove all of its data when the plugin is deleted.', 'rockpress' ),
+				'label'     => __( 'Remove all of its data when the plugin is deleted.', 'ft-rockpress' ),
 			)
 		);
 
@@ -65,7 +65,7 @@ class RockPress_Settings_RockPress extends RockPress_Settings {
 	    		array(
 	    			'field_id'  => $setting['id'] . '_remove_data',
 	    			'page_id'   => 'rockpress_settings',
-					'label'		=> __( 'Remove all of its data when the plugin is deleted.', 'rockpress' ),
+					'label'		=> __( 'Remove all of its data when the plugin is deleted.', 'ft-rockpress' ),
 	    		)
 	    	);
 		}
@@ -87,7 +87,7 @@ class RockPress_Settings_RockPress extends RockPress_Settings {
 	 * @return void
 	 */
 	public function rockpress_uninstall_section_callback() {
-	    echo '<p>' . esc_html( 'Upon deletion of RockPress, you can optionally remove any custom tables, settings, and license keys that have been entered.', 'rockpress' ) . '</p>';
+	    echo '<p>' . esc_html( 'Upon deletion of RockPress, you can optionally remove any custom tables, settings, and license keys that have been entered.', 'ft-rockpress' ) . '</p>';
 	}
 
 	/**

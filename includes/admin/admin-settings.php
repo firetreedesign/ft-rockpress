@@ -86,7 +86,7 @@ class RockPress_Settings {
 		<?php wp_nonce_field( $args['field_id'] . '-nonce', $args['field_id'] . '-nonce' ); ?>
 		<input type="text" id="<?php echo esc_attr( $args['field_id'] ); ?>" name="<?php echo esc_attr( $args['page_id'] ); ?>[<?php echo esc_attr( $args['field_id'] ); ?>]" value="<?php echo ( isset( $options[ $args['field_id'] ] ) ? esc_attr( $options[ $args['field_id'] ] ) : '' ); ?>" class="regular-text" />
 		<?php if ( 'valid' === get_option( $args['field_id'] . '_active' ) ) : ?>
-			<input type="submit" class="button-secondary" name="<?php echo esc_attr( $args['field_id'] . '_deactivate' ); ?>" value="<?php esc_attr_e( 'Deactivate License', 'rockpress' ); ?>">
+			<input type="submit" class="button-secondary" name="<?php echo esc_attr( $args['field_id'] . '_deactivate' ); ?>" value="<?php esc_attr_e( 'Deactivate License', 'ft-rockpress' ); ?>">
 		<?php endif; ?>
 		<?php if ( '' !== $args['label'] ) : ?>
 			<p class="description"><?php echo esc_html( $args['label'] ); ?></p>
@@ -227,7 +227,7 @@ class RockPress_Settings {
 				<option value="<?php echo esc_attr( $select_option['value'] ); ?>"><?php echo esc_html( $select_option['name'] ); ?></option>
 			<?php endforeach; ?>
 			</select>
-			<button class="button rockpress_list_select_add" id="<?php echo esc_attr( $args['field_id'] ); ?>_add"><?php esc_html_e( 'Add', 'rockpress' ); ?></button>
+			<button class="button rockpress_list_select_add" id="<?php echo esc_attr( $args['field_id'] ); ?>_add"><?php esc_html_e( 'Add', 'ft-rockpress' ); ?></button>
 		</fieldset>
 		<fieldset class="rockpress_list_select_right">
 			<label for="<?php echo esc_attr( $args['field_id'] ); ?>_selected"><strong><?php echo esc_html( $args['right_title'] ); ?></strong></label>
@@ -244,8 +244,8 @@ class RockPress_Settings {
 				<?php endforeach; ?>
 			<?php endforeach; ?>
 			</select>
-			<button class="button rockpress_list_select_edit" id="<?php echo esc_attr( $args['field_id'] ); ?>_edit"><?php esc_html_e( 'Edit', 'rockpress' ); ?></button>&nbsp;
-			<button class="button rockpress_list_select_remove" id="<?php echo esc_attr( $args['field_id'] ); ?>_remove"><?php esc_html_e( 'Remove', 'rockpress' ); ?></button>
+			<button class="button rockpress_list_select_edit" id="<?php echo esc_attr( $args['field_id'] ); ?>_edit"><?php esc_html_e( 'Edit', 'ft-rockpress' ); ?></button>&nbsp;
+			<button class="button rockpress_list_select_remove" id="<?php echo esc_attr( $args['field_id'] ); ?>_remove"><?php esc_html_e( 'Remove', 'ft-rockpress' ); ?></button>
 		</fieldset>
 		<input type="hidden" id="<?php echo esc_attr( $args['field_id'] ); ?>_values" name="<?php echo esc_attr( $args['page_id'] ); ?>[<?php echo esc_attr( $args['field_id'] ); ?>]" value="<?php echo esc_attr( $selected_values_original ); ?>" />
 		<?php
@@ -287,7 +287,7 @@ class RockPress_Settings {
 			<div class="description"><?php echo esc_html( $args['label'] ); ?></div><br />
 		<?php endif; ?>
 	    <fieldset class="rockpress_multi_select">
-	    	<legend><?php esc_html_e( 'Unselected:', 'rockpress' ); ?></legend>
+	    	<legend><?php esc_html_e( 'Unselected:', 'ft-rockpress' ); ?></legend>
 	    	<select multiple="multiple" size="15" id="<?php echo esc_attr( $args['field_id'] ); ?>_all">
 			<?php
 			if ( '' !== $args['options'] ) :
@@ -300,10 +300,10 @@ class RockPress_Settings {
 				<?php endforeach; ?>
 			<?php endif; ?>
 			</select>
-	    	<button class="button rockpress_multi_select_add" id="<?php echo esc_attr( $args['field_id'] ); ?>_add"><?php esc_html_e( 'Add To Selected', 'rockpress' ); ?></button>
+	    	<button class="button rockpress_multi_select_add" id="<?php echo esc_attr( $args['field_id'] ); ?>_add"><?php esc_html_e( 'Add To Selected', 'ft-rockpress' ); ?></button>
 	    </fieldset>
 	    <fieldset class="rockpress_multi_select">
-	    	<legend><?php esc_html_e( 'Selected:', 'rockpress' ); ?></legend>
+	    	<legend><?php esc_html_e( 'Selected:', 'ft-rockpress' ); ?></legend>
 	    	<select multiple="multiple" size="15" id="<?php echo esc_attr( $args['field_id'] ); ?>_selected">
 			<?php
 			if ( '' !== $args['options'] ) :
@@ -316,7 +316,7 @@ class RockPress_Settings {
 				<?php endforeach; ?>
 			<?php endif; ?>
 			</select>
-			<button class="button rockpress_multi_select_remove" id="<?php echo esc_attr( $args['field_id'] ); ?>_remove"><?php esc_html_e( 'Remove From Selected', 'rockpress' ); ?></button>
+			<button class="button rockpress_multi_select_remove" id="<?php echo esc_attr( $args['field_id'] ); ?>_remove"><?php esc_html_e( 'Remove From Selected', 'ft-rockpress' ); ?></button>
 	    </fieldset>
 	    <input type="hidden" id="<?php echo esc_attr( $args['field_id'] ); ?>_values" name="<?php echo esc_attr( $args['page_id'] ); ?>[<?php echo esc_attr( $args['field_id'] ); ?>]" value="<?php echo esc_attr( $selected_values_original ); ?>" />
 		<?php

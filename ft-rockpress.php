@@ -6,7 +6,7 @@
  * Version: 1.0.1
  * Author: FireTree Design, LLC <support@firetreedesign.com>
  * Author URI: https://firetreedesign.com/
- * Text Domain: rockpress
+ * Text Domain: ft-rockpress
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
@@ -181,6 +181,7 @@ if ( ! class_exists( 'RockPress' ) ) :
 		 */
 		private function actions() {
 			add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ) );
+			add_action( 'plugins_loaded', array( $this, 'plugin_textdomain' ) );
 		}
 
 		/**
@@ -192,6 +193,17 @@ if ( ! class_exists( 'RockPress' ) ) :
 		 */
 		public function register_styles() {
 			wp_register_style( 'rockpress', ROCKPRESS_PLUGIN_URL . 'assets/css/display.css' );
+		}
+
+		/**
+		 * Loads the plugin text domain for translation
+		 *
+		 * @since 0.9.8
+		 *
+		 * @return void
+		 */
+		public function plugin_textdomain() {
+			load_plugin_textdomain( 'ft-rockpress', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 		}
 
 		/**

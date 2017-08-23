@@ -89,13 +89,13 @@ abstract class RockPress_Shortcode_Generator {
 			$fields = $this->get_fields();
 
 			$defaults = array(
-				'btn_close' => esc_html__( 'Close', 'rockpress' ),
-				'btn_okay'  => esc_html__( 'Insert Shortcode', 'rockpress' ),
+				'btn_close' => esc_html__( 'Close', 'ft-rockpress' ),
+				'btn_okay'  => esc_html__( 'Insert Shortcode', 'ft-rockpress' ),
 				'errors'    => $this->errors,
 				'fields'    => $fields,
 				'label'     => '[' . $this->shortcode_tag . ']',
 				'required'  => $this->required,
-				'title'     => esc_html__( 'Insert Shortcode', 'rockpress' ),
+				'title'     => esc_html__( 'Insert Shortcode', 'ft-rockpress' ),
 			);
 
 			if ( user_can_richedit() ) {
@@ -253,7 +253,7 @@ abstract class RockPress_Shortcode_Generator {
 
 			// do not reindex array!
 			$field['options'] = array(
-				'' => ( $field['placeholder'] ? $field['placeholder'] : esc_attr__( '- Select -', 'rockpress' ) ),
+				'' => ( $field['placeholder'] ? $field['placeholder'] : esc_attr__( '- Select -', 'ft-rockpress' ) ),
 			) + $field['options'];
 
 			foreach ( $field['options'] as $value => $text ) {
@@ -341,7 +341,7 @@ abstract class RockPress_Shortcode_Generator {
 
 		if ( $posts ) {
 			foreach ( $posts as $post ) {
-				$options[ absint( $post->ID ) ] = ( empty( $post->post_title ) ? sprintf( __( 'Untitled (#%s)', 'rockpress' ), $post->ID ) : $post->post_title );
+				$options[ absint( $post->ID ) ] = ( empty( $post->post_title ) ? sprintf( __( 'Untitled (#%s)', 'ft-rockpress' ), $post->ID ) : $post->post_title );
 			}
 
 			$field['type']    = 'listbox';
@@ -433,7 +433,7 @@ abstract class RockPress_Shortcode_Generator {
 
 			if ( ! ! $required || is_array( $required ) ) {
 
-				$alert = esc_html__( 'Some of the shortcode options are required.', 'rockpress' );
+				$alert = esc_html__( 'Some of the shortcode options are required.', 'ft-rockpress' );
 
 				if ( isset( $required['alert'] ) ) {
 
@@ -443,7 +443,7 @@ abstract class RockPress_Shortcode_Generator {
 
 					$alert = sprintf(
 					/* translators: %s: option label */
-						esc_html__( 'The %s option is required.', 'rockpress' ),
+						esc_html__( 'The %s option is required.', 'ft-rockpress' ),
 						str_replace( ':', '', $label )
 					);
 				}

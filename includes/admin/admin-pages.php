@@ -36,8 +36,8 @@ class RockPress_Admin_Pages {
 
 	    // Getting Started Page.
 	    add_menu_page(
-	        __( 'RockPress Options', 'rockpress' ),
-	        __( 'RockPress', 'rockpress' ),
+	        __( 'RockPress Options', 'ft-rockpress' ),
+	        __( 'RockPress', 'ft-rockpress' ),
 	        'manage_options',
 	        'rockpress',
 	        array( $this, 'welcome_page' ),
@@ -47,8 +47,8 @@ class RockPress_Admin_Pages {
 	    // Remove duplicate menu and add Welcome menu subpage.
 	    add_submenu_page(
 		    'rockpress',
-		    __( 'Welcome', 'rockpress' ),
-		    __( 'Welcome', 'rockpress' ),
+		    __( 'Welcome', 'ft-rockpress' ),
+		    __( 'Welcome', 'ft-rockpress' ),
 		    'manage_options',
 		    'rockpress',
 		    array( $this, 'welcome_page' )
@@ -58,8 +58,8 @@ class RockPress_Admin_Pages {
 		global $rockpress_settings_help_page;
 		$rockpress_settings_help_page = add_submenu_page(
 		    'rockpress',
-		    __( 'Settings', 'rockpress' ),
-		    __( 'Settings', 'rockpress' ),
+		    __( 'Settings', 'ft-rockpress' ),
+		    __( 'Settings', 'ft-rockpress' ),
 		    'manage_options',
 		    'rockpress-settings',
 		    array( $this, 'settings_page' )
@@ -68,8 +68,8 @@ class RockPress_Admin_Pages {
 
 		add_submenu_page(
 			'rockpress',
-			__( 'Add-ons', 'rockpress' ),
-			__( 'Add-ons', 'rockpress' ),
+			__( 'Add-ons', 'ft-rockpress' ),
+			__( 'Add-ons', 'ft-rockpress' ),
 			'manage_options',
 			'rockpress-addons',
 			array( $this, 'addons_page' )
@@ -91,17 +91,17 @@ class RockPress_Admin_Pages {
 		$active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'welcome';
 	    ?>
 	    <div class="wrap about-wrap rockpress">
-	        <h1><?php esc_html_e( 'Welcome to RockPress', 'rockpress' ); ?></h1>
+	        <h1><?php esc_html_e( 'Welcome to RockPress', 'ft-rockpress' ); ?></h1>
 	        <div class="about-text">
-				<?php esc_html_e( 'Thank you for using RockPress. RockPress allows you to display content from Rock RMS on your WordPress site.', 'rockpress' ); ?>
+				<?php esc_html_e( 'Thank you for using RockPress. RockPress allows you to display content from Rock RMS on your WordPress site.', 'ft-rockpress' ); ?>
 			</div>
-			<div class="rockpress-badge"><img src="<?php echo esc_attr( ROCKPRESS_PLUGIN_URL ) . 'assets/images/rockpress-mark.png'; ?>" alt="<?php esc_html_e( 'RockPress', 'rockpress' ); ?>" / ></div>
+			<div class="rockpress-badge"><img src="<?php echo esc_attr( ROCKPRESS_PLUGIN_URL ) . 'assets/images/rockpress-mark.png'; ?>" alt="<?php esc_html_e( 'RockPress', 'ft-rockpress' ); ?>" / ></div>
 	        <h1 class="nav-tab-wrapper">
 	            <a class="nav-tab<?php echo ( 'welcome' === $active_tab ? ' nav-tab-active' : '' ); ?>" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'rockpress' ), 'admin.php' ) ) ); ?>">
 	                <?php esc_html_e( 'Welcome', 'rockpress' ); ?>
 	            </a>
 				<a class="nav-tab<?php echo ( 'getting-started' === $active_tab ? ' nav-tab-active' : '' ); ?>" href="<?php echo esc_url( admin_url( add_query_arg( array( 'tab' => 'getting-started' ), add_query_arg( array( 'page' => 'rockpress' ), 'admin.php' ) ) ) ); ?>">
-	                <?php esc_html_e( 'Getting Started', 'rockpress' ); ?>
+	                <?php esc_html_e( 'Getting Started', 'ft-rockpress' ); ?>
 	            </a>
 	        </h1>
 			<?php
@@ -122,27 +122,27 @@ class RockPress_Admin_Pages {
 		?>
 		<div class="feature-section one-col">
 			<div class="col">
-				<h2><?php esc_html_e( 'Widgets', 'rockpress' ); ?></h2>
-				<p class="lead-description"><?php esc_html_e( 'We have widgets to display a variety of information.', 'rockpress' ); ?></p>
+				<h2><?php esc_html_e( 'Widgets', 'ft-rockpress' ); ?></h2>
+				<p class="lead-description"><?php esc_html_e( 'We have widgets to display a variety of information.', 'ft-rockpress' ); ?></p>
 			</div>
 		</div>
 		<div class="feature-section two-col">
 			<div class="col">
-				<h3><?php esc_html_e( 'Service Times Widget', 'rockpress' ); ?></h3>
+				<h3><?php esc_html_e( 'Service Times Widget', 'ft-rockpress' ); ?></h3>
 				<img src="<?php echo esc_attr( ROCKPRESS_PLUGIN_URL ) . '/assets/images/widget-service-times.png'; ?>" />
-				<p><?php esc_html_e( 'Display service times for the selected Campus, straight from Rock RMS.', 'rockpress' ); ?></p>
+				<p><?php esc_html_e( 'Display service times for the selected Campus, straight from Rock RMS.', 'ft-rockpress' ); ?></p>
 			</div>
 			<div class="col">
-				<h3><?php esc_html_e( 'Campus Selector Widget', 'rockpress' ); ?></h3>
+				<h3><?php esc_html_e( 'Campus Selector Widget', 'ft-rockpress' ); ?></h3>
 				<img src="<?php echo esc_attr( ROCKPRESS_PLUGIN_URL ) . '/assets/images/widget-campus-selector.png'; ?>" />
-				<p><?php esc_html_e( 'Display links to each campus that is setup in Rock RMS.', 'rockpress' ); ?></p>
+				<p><?php esc_html_e( 'Display links to each campus that is setup in Rock RMS.', 'ft-rockpress' ); ?></p>
 			</div>
 		</div>
 		<hr />
 		<div class="feature-section one-col">
 			<div class="col">
-				<h2><?php esc_html_e( 'Add-ons', 'rockpress' ); ?></h2>
-				<p class="lead-description"><?php esc_html_e( 'Extend the functionality of RockPress. Coming soon...', 'rockpress' ); ?></p>
+				<h2><?php esc_html_e( 'Add-ons', 'ft-rockpress' ); ?></h2>
+				<p class="lead-description"><?php esc_html_e( 'Extend the functionality of RockPress. Coming soon...', 'ft-rockpress' ); ?></p>
 			</div>
 		</div>
 		<?php
@@ -152,15 +152,15 @@ class RockPress_Admin_Pages {
 		?>
 		<div class="feature-section one-col">
 			<div class="col">
-				<h2><?php esc_html_e( 'Connecting to Rock RMS', 'rockpress' ); ?></h2>
-				<p class="lead-description"><?php esc_html_e( 'Before you can use the plugin, you need to provide it with the information needed to connect to your Rock RMS site.', 'rockpress' ); ?></p>
+				<h2><?php esc_html_e( 'Connecting to Rock RMS', 'ft-rockpress' ); ?></h2>
+				<p class="lead-description"><?php esc_html_e( 'Before you can use the plugin, you need to provide it with the information needed to connect to your Rock RMS site.', 'ft-rockpress' ); ?></p>
 			</div>
 		</div>
 		<div class="feature-section two-col">
 			<div class="col">
-				<h3><?php esc_html_e( '1. Create a REST Key', 'rockpress' ); ?></h3>
-				<p><?php esc_html_e( 'A REST Key is created by navigating to the Security > REST Keys page of your Rock site. Click on the plus icon to create a new key.', 'rockpress' ); ?></p>
-				<p><?php echo sprintf( '%s<strong>%s</strong>%s', esc_html__( 'You should name your key, ', 'rockpress' ), esc_html__( 'RockPress', 'rockpress' ), esc_html__( ', so that it is easy to identify in the future. Click on the Generate Key button, then click Save.', 'rockpress' ) ); ?></p>
+				<h3><?php esc_html_e( '1. Create a REST Key', 'ft-rockpress' ); ?></h3>
+				<p><?php esc_html_e( 'A REST Key is created by navigating to the Security > REST Keys page of your Rock site. Click on the plus icon to create a new key.', 'ft-rockpress' ); ?></p>
+				<p><?php echo sprintf( '%s<strong>%s</strong>%s', esc_html__( 'You should name your key, ', 'ft-rockpress' ), esc_html__( 'RockPress', 'ft-rockpress' ), esc_html__( ', so that it is easy to identify in the future. Click on the Generate Key button, then click Save.', 'ft-rockpress' ) ); ?></p>
 			</div>
 			<div class="col">
 				<img src="<?php echo esc_attr( ROCKPRESS_PLUGIN_URL ) . '/assets/images/rock-rest-key.png'; ?>" />
@@ -169,8 +169,8 @@ class RockPress_Admin_Pages {
 		<hr />
 		<div class="feature-section two-col">
 			<div class="col">
-				<h3><?php esc_html_e( '2. Assign a Security Role', 'rockpress' ); ?></h3>
-				<p><?php esc_html_e( 'Next, you will need to assign a Security Role so that the REST Key has permission to access the data inside Rock. Within Rock, navigate to Security > Security Roles. Select the Rock Administration role, then add the REST Key that you created in Step 1 to this Security Role.', 'rockpress' ); ?></p>
+				<h3><?php esc_html_e( '2. Assign a Security Role', 'ft-rockpress' ); ?></h3>
+				<p><?php esc_html_e( 'Next, you will need to assign a Security Role so that the REST Key has permission to access the data inside Rock. Within Rock, navigate to Security > Security Roles. Select the Rock Administration role, then add the REST Key that you created in Step 1 to this Security Role.', 'ft-rockpress' ); ?></p>
 			</div>
 			<div class="col">
 				<img src="<?php echo esc_attr( ROCKPRESS_PLUGIN_URL ) . '/assets/images/rock-security-role.png'; ?>" />
@@ -179,14 +179,14 @@ class RockPress_Admin_Pages {
 		<hr />
 		<div class="feature-section two-col">
 			<div class="col">
-				<h3><?php esc_html_e( '3. Enter your REST Key information', 'rockpress' ); ?></h3>
-				<p><?php esc_html_e( 'Now, you will need to visit the Rock RMS tab and fill in your REST Key information.', 'rockpress' ); ?></p>
-				<p><?php esc_html_e( 'You will need to have the following information:', 'rockpress' ); ?></p>
+				<h3><?php esc_html_e( '3. Enter your REST Key information', 'ft-rockpress' ); ?></h3>
+				<p><?php esc_html_e( 'Now, you will need to visit the Rock RMS tab and fill in your REST Key information.', 'ft-rockpress' ); ?></p>
+				<p><?php esc_html_e( 'You will need to have the following information:', 'ft-rockpress' ); ?></p>
 				<ul>
-					<li><?php esc_html_e( 'The URL you use to access your Rock RMS site.', 'rockpress' ); ?></li>
-					<li><?php esc_html_e( 'The REST Key that you created.', 'rockpress' ); ?></li>
+					<li><?php esc_html_e( 'The URL you use to access your Rock RMS site.', 'ft-rockpress' ); ?></li>
+					<li><?php esc_html_e( 'The REST Key that you created.', 'ft-rockpress' ); ?></li>
 				</ul>
-				<p><a class="button button-secondary" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'rockpress-settings' ), 'admin.php' ) ) ); ?>"><?php esc_html_e( 'Enter Your REST Key', 'rockpress' ); ?></a></p>
+				<p><a class="button button-secondary" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'rockpress-settings' ), 'admin.php' ) ) ); ?>"><?php esc_html_e( 'Enter Your REST Key', 'ft-rockpress' ); ?></a></p>
 			</div>
 			<div class="col">
 				<img src="<?php echo esc_attr( ROCKPRESS_PLUGIN_URL ) . '/assets/images/rest-key-information.png'; ?>" />
@@ -195,17 +195,17 @@ class RockPress_Admin_Pages {
 		<hr />
 		<div class="feature-section two-col">
 			<div class="col">
-				<h3><?php esc_html_e( '4. Add some widgets', 'rockpress' ); ?></h3>
-				<p><?php esc_html_e( 'You are now ready to use any of the widgets that come with RockPress.', 'rockpress' ); ?></p>
-				<p><a class="button button-secondary" href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Manage Widgets', 'rockpress' ); ?></a></p>
+				<h3><?php esc_html_e( '4. Add some widgets', 'ft-rockpress' ); ?></h3>
+				<p><?php esc_html_e( 'You are now ready to use any of the widgets that come with RockPress.', 'ft-rockpress' ); ?></p>
+				<p><a class="button button-secondary" href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Manage Widgets', 'ft-rockpress' ); ?></a></p>
 			</div>
 		</div>
 		<hr />
 		<div class="feature-section two-col">
 			<div class="col">
-				<h3><?php esc_html_e( '5. Browse our add-ons', 'rockpress' ); ?></h3>
-				<p><?php esc_html_e( 'Feel free to browse our add-ons to add additional functionality to RockPress.', 'rockpress' ); ?></p>
-				<p><a class="button button-primary" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'rockpress-addons' ), 'admin.php' ) ) ); ?>"><?php esc_html_e( 'Browse Add-ons', 'rockpress' ); ?></a></p>
+				<h3><?php esc_html_e( '5. Browse our add-ons', 'ft-rockpress' ); ?></h3>
+				<p><?php esc_html_e( 'Feel free to browse our add-ons to add additional functionality to RockPress.', 'ft-rockpress' ); ?></p>
+				<p><a class="button button-primary" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'rockpress-addons' ), 'admin.php' ) ) ); ?>"><?php esc_html_e( 'Browse Add-ons', 'ft-rockpress' ); ?></a></p>
 			</div>
 		</div>
 		<?php
@@ -234,7 +234,7 @@ class RockPress_Admin_Pages {
 		}
 		?>
 	    <div class="wrap">
-			<h1><?php esc_html_e( 'Settings', 'rockpress' ); ?></h1>
+			<h1><?php esc_html_e( 'Settings', 'ft-rockpress' ); ?></h1>
 	        <h1 class="nav-tab-wrapper">
 	            <?php foreach ( $all_tabs as $tab ) : ?>
 	                <a class="nav-tab<?php echo ( $active_tab === $tab['tab_id'] ? ' nav-tab-active' : '' ); ?>" href="<?php echo esc_url( admin_url( add_query_arg( array( 'tab' => $tab['tab_id'] ), add_query_arg( array( 'page' => 'rockpress-settings' ), 'admin.php' ) ) ) ); ?>">
@@ -322,7 +322,7 @@ class RockPress_Admin_Pages {
 		}
 		?>
 	    <div class="wrap rockpress-addons">
-			<h2><?php esc_html_e( 'RockPress Add-ons', 'rockpress' ); ?></h2>
+			<h2><?php esc_html_e( 'RockPress Add-ons', 'ft-rockpress' ); ?></h2>
 			<p>
 				The following are available add-ons to extend RockPress functionality.
 			</p>
@@ -342,7 +342,7 @@ class RockPress_Admin_Pages {
 					<?php
 					endforeach;
 				} else {
-					esc_html_e( 'Add-ons for RockPress will be available soon.', 'rockpress' );
+					esc_html_e( 'Add-ons for RockPress will be available soon.', 'ft-rockpress' );
 				}
 				?>
 			</div><!-- #tab_container-->

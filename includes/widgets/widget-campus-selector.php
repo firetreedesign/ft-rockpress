@@ -23,8 +23,8 @@ if ( ! class_exists( 'RockPress_Widget_Campus_Selector' ) ) :
 
 			parent::__construct(
 				'rockpress_widget_campus_selector',
-				__( 'Campus Selector (RockPress)', 'RockPress' ),
-				array( 'description' => __( 'Display a list of your campuses with links to each one.', 'rockpress' ) )
+				__( 'Campus Selector (RockPress)', 'ft-rockpress' ),
+				array( 'description' => __( 'Display a list of your campuses with links to each one.', 'ft-rockpress' ) )
 			);
 
 		}
@@ -93,7 +93,7 @@ if ( ! class_exists( 'RockPress_Widget_Campus_Selector' ) ) :
 			$title = ! empty( $instance['title'] ) ? $instance['title'] : '';
 			?>
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'rockpress' ); ?></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'ft-rockpress' ); ?></label>
 				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 			</p>
 			<?php
@@ -138,7 +138,7 @@ if ( ! class_exists( 'RockPress_Widget_Campus_Selector' ) ) :
 			if ( false !== ( $template_path = $template->path() ) ) {
 				include( $template_path ); // Include the template.
 			} else {
-				esc_html_e( 'Template not found. Please reinstall RockPress.', 'rockpress' );
+				esc_html_e( 'Template not found. Please reinstall RockPress.', 'ft-rockpress' );
 			}
 
 			// Return the output.

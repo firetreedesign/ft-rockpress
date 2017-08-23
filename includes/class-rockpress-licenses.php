@@ -202,7 +202,7 @@ if ( ! class_exists( 'RockPress_License' ) ) :
 			}
 
 			if ( ! wp_verify_nonce( $_REQUEST[ $this->item_shortname . '_license_key-nonce' ], $this->item_shortname . '_license_key-nonce' ) ) {
-				wp_die( esc_html__( 'Nonce verification failed', 'rockpress' ), esc_html__( 'Error', 'rockpress' ), array( 'response' => 403 ) );
+				wp_die( esc_html__( 'Nonce verification failed', 'ft-rockpress' ), esc_html__( 'Error', 'ft-rockpress' ), array( 'response' => 403 ) );
 			}
 
 			foreach ( $_POST as $key => $value ) {
@@ -271,7 +271,7 @@ if ( ! class_exists( 'RockPress_License' ) ) :
 			}
 
 			if ( ! wp_verify_nonce( $_REQUEST[ $this->item_shortname . '_license_key-nonce' ], $this->item_shortname . '_license_key-nonce' ) ) {
-				wp_die( esc_html__( 'Nonce verification failed', 'rockpress' ), esc_html__( 'Error', 'rockpress' ), array( 'response' => 403 ) );
+				wp_die( esc_html__( 'Nonce verification failed', 'ft-rockpress' ), esc_html__( 'Error', 'ft-rockpress' ), array( 'response' => 403 ) );
 			}
 
 			if ( isset( $_POST[ $this->item_shortname . '_license_key_deactivate' ] ) ) {
