@@ -97,7 +97,7 @@ class RockPress_Admin_Scripts {
 			'ccbpress_ver'		=> RockPress()->version,
 			'wp_ver'			=> get_bloginfo( 'version' ),
 			'php_ver'			=> phpversion(),
-			'topics'			=> apply_filters( 'rockress_support_topics', array(
+			'topics'			=> apply_filters( 'rockpress_support_topics', array(
 				array(
 					'val'	=> 'general',
 					'label'	=> __( 'General question', 'ft-rockpress' ),

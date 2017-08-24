@@ -142,7 +142,7 @@ class RockPress_Admin_Pages {
 		<div class="feature-section one-col">
 			<div class="col">
 				<h2><?php esc_html_e( 'Add-ons', 'ft-rockpress' ); ?></h2>
-				<p class="lead-description"><?php esc_html_e( 'Extend the functionality of RockPress. Coming soon...', 'ft-rockpress' ); ?></p>
+				<p class="lead-description"><?php esc_html_e( 'Extend the functionality of RockPress.', 'ft-rockpress' ); ?><br /><br /><a class="button button-primary" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'rockpress-addons' ), 'admin.php' ) ) ); ?>"><?php esc_html_e( 'Browse Add-ons', 'ft-rockpress' ); ?></a></p>
 			</div>
 		</div>
 		<?php
