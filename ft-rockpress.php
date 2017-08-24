@@ -3,10 +3,10 @@
  * Plugin Name: RockPress
  * Plugin URI: http://rockpresswp.com/
  * Description: Display information from Rock RMS on your WordPress site.
- * Version: 1.0.1
- * Author: FireTree Design, LLC <support@firetreedesign.com>
- * Author URI: https://firetreedesign.com/
- * Text Domain: rockpress
+ * Version: 1.0.2
+ * Author: RockPress <support@rockpress.com>
+ * Author URI: https://rockpress.com/
+ * Text Domain: ft-rockpress
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
@@ -66,7 +66,7 @@ if ( ! class_exists( 'RockPress' ) ) :
 	     * @var string
 	     * @since 1.0.0
 	     */
-	    public $version = '1.0.1';
+	    public $version = '1.0.2';
 
 		/**
 	     * Main RockPress Instance
@@ -89,6 +89,7 @@ if ( ! class_exists( 'RockPress' ) ) :
 	            self::$instance->setup_constants();
 	            self::$instance->includes();
 				self::$instance->actions();
+				self::$instance->register_addon();
 
 	            self::$instance->transients	= new RockPress_Transients();
 	            self::$instance->rock		= new RockPress_Rock_REST_API();
@@ -128,6 +129,23 @@ if ( ! class_exists( 'RockPress' ) ) :
 			if ( ! defined( 'ROCKPRESS_PLUGIN_URL' ) ) {
 				define( 'ROCKPRESS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 			}
+
+		}
+
+		/**
+		 * Register the addon with RockPress
+		 *
+		 * @since 1.0.0
+		 *
+		 * @return void
+		 */
+		private function register_addon() {
+
+			$addon = new RockPress_Addon( array(
+				'controllers' => array(
+					'Campuses',
+				),
+			) );
 
 		}
 
@@ -181,6 +199,7 @@ if ( ! class_exists( 'RockPress' ) ) :
 		 */
 		private function actions() {
 			add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ) );
+			add_action( 'plugins_loaded', array( $this, 'plugin_textdomain' ) );
 		}
 
 		/**
@@ -192,6 +211,17 @@ if ( ! class_exists( 'RockPress' ) ) :
 		 */
 		public function register_styles() {
 			wp_register_style( 'rockpress', ROCKPRESS_PLUGIN_URL . 'assets/css/display.css' );
+		}
+
+		/**
+		 * Loads the plugin text domain for translation
+		 *
+		 * @since 0.9.8
+		 *
+		 * @return void
+		 */
+		public function plugin_textdomain() {
+			load_plugin_textdomain( 'ft-rockpress', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 		}
 
 		/**

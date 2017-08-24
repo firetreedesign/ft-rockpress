@@ -87,7 +87,7 @@ class RockPress_Admin_Scripts {
 
 		wp_localize_script( 'rockpress-admin', 'rockpress_vars', array(
 			'nonce' => wp_create_nonce( 'rockpress-nonce' ),
-			'reset_import_dialog' => __( 'Are you sure that you want to reset the last import time?', 'rockpress' ),
+			'reset_import_dialog' => __( 'Are you sure that you want to reset the last import time?', 'ft-rockpress' ),
 		) );
 
 		$current_user = wp_get_current_user();
@@ -97,18 +97,18 @@ class RockPress_Admin_Scripts {
 			'ccbpress_ver'		=> RockPress()->version,
 			'wp_ver'			=> get_bloginfo( 'version' ),
 			'php_ver'			=> phpversion(),
-			'topics'			=> apply_filters( 'rockress_support_topics', array(
+			'topics'			=> apply_filters( 'rockpress_support_topics', array(
 				array(
 					'val'	=> 'general',
-					'label'	=> __( 'General question', 'rockpress' ),
+					'label'	=> __( 'General question', 'ft-rockpress' ),
 				),
 				array(
 					'val'	=> 'rock-api-key',
-					'label'	=> __( 'Rock RMS API Key', 'rockpress' ),
+					'label'	=> __( 'Rock RMS API Key', 'ft-rockpress' ),
 				),
 				array(
 					'val'	=> 'bug',
-					'label'	=> __( 'I think I found a bug', 'rockpress' ),
+					'label'	=> __( 'I think I found a bug', 'ft-rockpress' ),
 				),
 			) ),
 		) );
