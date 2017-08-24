@@ -37,7 +37,7 @@ class RockPress_Settings_Licenses extends RockPress_Settings {
 	    // First, we register a section. This is necessary since all future options must belong to one.
 		add_settings_section(
 			'rockpress_settings_licenses_section',
-			__( 'License Keys', 'rockpress' ),
+			__( 'License Keys', 'ft-rockpress' ),
 			array( $this, 'section_callback' ),
 			'rockpress_settings_licenses'
 		);
@@ -81,7 +81,7 @@ class RockPress_Settings_Licenses extends RockPress_Settings {
 	 * @return void
 	 */
 	public function section_callback() {
-	    echo '<p>' . esc_html( 'Please enter your license keys in order to receive updates and support.', 'rockpress' ) . '</p>';
+	    echo '<p>' . esc_html( 'Please enter your license keys in order to receive updates and support.', 'ft-rockpress' ) . '</p>';
 	}
 
 	/**

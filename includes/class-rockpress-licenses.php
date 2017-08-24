@@ -164,7 +164,9 @@ if ( ! class_exists( 'RockPress_License' ) ) :
 		 */
 		public function auto_updater() {
 
-			if ( 'valid' !== get_option( $this->item_shortname . '_license_key_active' ) ) {
+			$license_data = json_decode( get_option( $this->item_shortname . '_license_key_active', '' ) );
+
+			if ( ! isset( $license_data->license ) || 'valid' !== $license_data->license ) {
 			 	return;
 			}
 
@@ -201,18 +203,20 @@ if ( ! class_exists( 'RockPress_License' ) ) :
 				return;
 			}
 
-			if ( ! wp_verify_nonce( $_REQUEST[ $this->item_shortname . '_license_key-nonce' ], $this->item_shortname . '_license_key-nonce' ) ) {
-				wp_die( esc_html__( 'Nonce verification failed', 'rockpress' ), esc_html__( 'Error', 'rockpress' ), array( 'response' => 403 ) );
-			}
-
 			foreach ( $_POST as $key => $value ) {
 				if ( false !== strpos( $key, 'license_key_deactivate' ) ) {
 					return;
 				}
 			}
 
-			if ( 'valid' === get_option( $this->item_shortname . '_license_key_active' ) ) {
-				return;
+			if ( ! wp_verify_nonce( $_REQUEST[ $this->item_shortname . '_license_key-nonce' ], $this->item_shortname . '_license_key-nonce' ) ) {
+				wp_die( esc_html__( 'Nonce verification failed', 'ft-rockpress' ), esc_html__( 'Error', 'ft-rockpress' ), array( 'response' => 403 ) );
+			}
+
+			$license_data = json_decode( get_option( $this->item_shortname . '_license_key_active', '' ) );
+
+			if ( isset( $license_data->license ) && 'valid' === $license_data->license ) {
+			 	return;
 			}
 
 			$license = sanitize_text_field( $_POST['rockpress_licenses'][ $this->item_shortname . '_license_key' ] );
@@ -245,9 +249,8 @@ if ( ! class_exists( 'RockPress_License' ) ) :
 			// Make WordPress look for updates.
 			set_site_transient( 'update_plugins', null );
 
-			$license_data = json_decode( wp_remote_retrieve_body( $response ) );
-
-			update_option( $this->item_shortname . '_license_key_active', $license_data->license );
+			$license_data = wp_remote_retrieve_body( $response );
+			update_option( $this->item_shortname . '_license_key_active', $license_data );
 
 		}
 
@@ -271,7 +274,7 @@ if ( ! class_exists( 'RockPress_License' ) ) :
 			}
 
 			if ( ! wp_verify_nonce( $_REQUEST[ $this->item_shortname . '_license_key-nonce' ], $this->item_shortname . '_license_key-nonce' ) ) {
-				wp_die( esc_html__( 'Nonce verification failed', 'rockpress' ), esc_html__( 'Error', 'rockpress' ), array( 'response' => 403 ) );
+				wp_die( esc_html__( 'Nonce verification failed', 'ft-rockpress' ), esc_html__( 'Error', 'ft-rockpress' ), array( 'response' => 403 ) );
 			}
 
 			if ( isset( $_POST[ $this->item_shortname . '_license_key_deactivate' ] ) ) {

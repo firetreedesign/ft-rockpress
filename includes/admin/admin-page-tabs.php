@@ -41,14 +41,14 @@ class RockPress_Admin_Page_Tabs {
 		$tabs[] = array(
 			'tab_id'		=> 'rock',
 			'settings_id'	=> 'rockpress_settings_rock',
-			'title'			=> __( 'Rock RMS', 'rockpress' ),
+			'title'			=> __( 'Rock RMS', 'ft-rockpress' ),
 			'submit'		=> true,
 		);
 
 		$tabs[] = array(
 			'tab_id'		=> 'rockpress',
 			'settings_id'	=> 'rockpress_settings',
-			'title'			=> __( 'RockPress', 'rockpress' ),
+			'title'			=> __( 'RockPress', 'ft-rockpress' ),
 			'submit'		=> true,
 		);
 
@@ -57,7 +57,7 @@ class RockPress_Admin_Page_Tabs {
 			$tabs[] = array(
 				'tab_id'		=> 'import',
 				'settings_id'	=> 'rockpress_import',
-				'title'			=> __( 'Data Import', 'rockpress' ),
+				'title'			=> __( 'Data Import', 'ft-rockpress' ),
 				'submit'		=> false,
 			);
 
@@ -82,7 +82,7 @@ class RockPress_Admin_Page_Tabs {
 			$tabs[] = array(
 				'tab_id'		=> 'licenses',
 				'settings_id'	=> 'rockpress_settings_licenses',
-				'title'			=> __( 'Licenses', 'rockpress' ),
+				'title'			=> __( 'Licenses', 'ft-rockpress' ),
 				'submit'		=> true,
 			);
 		}
@@ -105,19 +105,28 @@ class RockPress_Admin_Page_Tabs {
 		$actions[] = array(
 			'tab_id'	=> 'rock',
 			'type'		=> 'secondary',
-			'class'		=> NULL,
+			'class'		=> null,
 			'link'		=> 'https://rockrms.com/',
 			'target'	=> '_blank',
-			'title'		=> __( 'Rock RMS Website', 'rockpress' ),
+			'title'		=> __( 'Rock RMS Website', 'ft-rockpress' ),
 		);
 
 		$actions[] = array(
 			'tab_id'	=> 'licenses',
 			'type'		=> 'secondary',
-			'class'		=> NULL,
+			'class'		=> null,
 			'link'		=> 'https://rockpresswp.com/account/',
 			'target'	=> '_blank',
-			'title'		=> __( 'Your Account', 'rockpress' ),
+			'title'		=> __( 'Your Account', 'ft-rockpress' ),
+		);
+
+		$actions[] = array(
+			'tab_id'	=> 'rock',
+			'type'		=> 'secondary',
+			'class'		=> 'rockpress-rest-controllers',
+			'link'		=> '#',
+			'target'	=> null,
+			'title'		=> __( 'REST Controllers', 'ft-rockpress' ),
 		);
 
 		return $actions;

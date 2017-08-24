@@ -23,8 +23,8 @@ if ( ! class_exists( 'RockPress_Widget_Service_Times' ) ) :
 
 			parent::__construct(
 				'rockpress_widget_service_times',
-				__( 'Service Times (RockPress)', 'RockPress' ),
-				array( 'description' => __( 'Displays the service times for a campus.', 'rockpress' ) )
+				__( 'Service Times (RockPress)', 'ft-rockpress' ),
+				array( 'description' => __( 'Displays the service times for a campus.', 'ft-rockpress' ) )
 			);
 
 		}
@@ -49,8 +49,8 @@ if ( ! class_exists( 'RockPress_Widget_Service_Times' ) ) :
 			}
 
 			$campus_data = json_decode( RockPress()->rock->get( array(
-				'endpoint'	=> 'Campuses',
-				'id'		=> $instance['campus'],
+				'controller'	=> 'Campuses',
+				'id'			=> $instance['campus'],
 			) ) );
 
 			echo $args['before_widget'];
@@ -103,11 +103,11 @@ if ( ! class_exists( 'RockPress_Widget_Service_Times' ) ) :
 			) ) );
 			?>
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'rockpress' ); ?></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'ft-rockpress' ); ?></label>
 				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 			</p>
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'campus' ) ); ?>"><?php esc_html_e( 'Campus:', 'rockpress' ); ?></label>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'campus' ) ); ?>"><?php esc_html_e( 'Campus:', 'ft-rockpress' ); ?></label>
 				<select id="<?php echo esc_attr( $this->get_field_id( 'campus' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'campus' ) ); ?>" class="widefat">
 			<?php
 			if ( is_array( $campuses ) ) {
@@ -169,7 +169,7 @@ if ( ! class_exists( 'RockPress_Widget_Service_Times' ) ) :
 			if ( false !== ( $template_path = $template->path() ) ) {
 				include( $template_path ); // Include the template.
 			} else {
-				esc_html_e( 'Template not found. Please reinstall RockPress.', 'rockpress' );
+				esc_html_e( 'Template not found. Please reinstall RockPress.', 'ft-rockpress' );
 			}
 
 			// Return the output.

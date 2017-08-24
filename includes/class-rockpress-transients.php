@@ -180,7 +180,8 @@ class RockPress_Transients {
 
 		global $wpdb;
 
-		$expired  = $wpdb->get_col( $wpdb->prepare( "SELECT option_name FROM $wpdb->options where option_name LIKE _transient_timeout_$this->prefix% AND option_value+0 < %s", time() ) );
+		$now = current_time( 'timestamp' );
+		$expired  = $wpdb->get_col( "SELECT option_name FROM $wpdb->options where option_name LIKE '%_transient_timeout_$this->prefix%' AND option_value+0 < $now" );
 
 		if ( empty( $expired ) ) {
 			return false;
@@ -189,6 +190,7 @@ class RockPress_Transients {
 		foreach ( $expired as $transient ) {
 
 			$name = str_replace( '_transient_timeout_', '', $transient );
+
 			if ( is_multisite() ) {
 				delete_site_transient( $name );
 			} else {

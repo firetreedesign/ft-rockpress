@@ -1,5 +1,10 @@
 jQuery( document ).ready(function($) {
 
+	jQuery( '.rockpress-rest-controllers.button' ).click( function() {
+		jQuery('button#contextual-help-link').trigger('click');
+		return false;
+	});
+
 	jQuery( '#rockpress-rock-connection-test-button' ).click( function() {
 		jQuery( '#rockpress-rock-connection-test-loading' ).show();
 		jQuery( '#rockpress-rock-connection-test-button' ).attr('disabled', true);

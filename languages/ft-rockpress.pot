@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 18:53+0000\n"
+"POT-Creation-Date: 2017-08-23 23:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -21,6 +21,12 @@ msgstr ""
 #: includes/admin/settings/settings-rockpress.php:46
 #: includes/admin/shortcodes/class-shortcode-button.php:162
 msgid "RockPress"
+msgstr ""
+
+#: includes/class-rockpress-customizer.php:58
+msgid ""
+"<p>This screen is used to manage the RockPress settings that affect the look "
+"of your website.</p>"
 msgstr ""
 
 #: includes/class-rockpress-customizer.php:70
@@ -53,7 +59,7 @@ msgstr ""
 
 #: includes/class-rockpress-import.php:124
 #: includes/class-rockpress-import.php:144
-#: includes/class-rockpress-import.php:177
+#: includes/class-rockpress-import.php:177 includes/admin/admin-ajax.php:36
 msgid "Insufficient Permissions"
 msgstr ""
 
@@ -61,10 +67,6 @@ msgstr ""
 msgid ""
 "Import is running in the background. Leaving this page will not interrupt "
 "the process."
-msgstr ""
-
-#: includes/class-rockpress-import.php:198
-msgid "Never"
 msgstr ""
 
 #: includes/class-rockpress-licenses.php:205
@@ -91,7 +93,6 @@ msgid "Rock RMS"
 msgstr ""
 
 #: includes/admin/admin-page-tabs.php:60
-#: includes/admin/settings/settings-import.php:49
 msgid "Data Import"
 msgstr ""
 
@@ -112,7 +113,6 @@ msgid "RockPress Options"
 msgstr ""
 
 #: includes/admin/admin-pages.php:50 includes/admin/admin-pages.php:51
-#: includes/admin/admin-pages.php:101
 msgid "Welcome"
 msgstr ""
 
@@ -318,25 +318,33 @@ msgstr ""
 msgid "Remove From Selected"
 msgstr ""
 
+#: includes/widgets/widget-campus-selector.php:26
+msgid "Campus Selector (RockPress)"
+msgstr ""
+
 #: includes/widgets/widget-campus-selector.php:27
 msgid "Display a list of your campuses with links to each one."
 msgstr ""
 
 #: includes/widgets/widget-campus-selector.php:96
-#: includes/widgets/widget-service-times.php:105
+#: includes/widgets/widget-service-times.php:106
 msgid "Title:"
 msgstr ""
 
 #: includes/widgets/widget-campus-selector.php:141
-#: includes/widgets/widget-service-times.php:171
+#: includes/widgets/widget-service-times.php:172
 msgid "Template not found. Please reinstall RockPress."
+msgstr ""
+
+#: includes/widgets/widget-service-times.php:26
+msgid "Service Times (RockPress)"
 msgstr ""
 
 #: includes/widgets/widget-service-times.php:27
 msgid "Displays the service times for a campus."
 msgstr ""
 
-#: includes/widgets/widget-service-times.php:109
+#: includes/widgets/widget-service-times.php:110
 msgid "Campus:"
 msgstr ""
 
@@ -384,7 +392,6 @@ msgstr ""
 msgid "The REST API Key that you created on your Rock RMS site."
 msgstr ""
 
-#: includes/admin/settings/settings-rock.php:91
 #: includes/admin/settings/settings-rock.php:98
 msgid "Connection Test"
 msgstr ""

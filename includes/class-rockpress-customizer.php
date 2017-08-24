@@ -54,8 +54,8 @@ class RockPress_Customizer {
 	 */
 	private function add_panels( $wp_customize ) {
 		$wp_customize->add_panel( 'rockpress', array(
-			'title'			=> __( 'RockPress', 'rockpress' ),
-			'description'	=> __( '<p>This screen is used to manage the RockPress settings that affect the look of your website.</p>', 'rockpresss' ),
+			'title'			=> __( 'RockPress', 'ft-rockpress' ),
+			'description'	=> __( '<p>This screen is used to manage the RockPress settings that affect the look of your website.</p>', 'ft-rockpress' ),
 			'priority'		=> 160,
 		) );
 	}
@@ -67,7 +67,7 @@ class RockPress_Customizer {
 	 */
 	private function add_sections( $wp_customize ) {
 		$wp_customize->add_section( 'rockpress_service_times', array(
-			'title'			=> __( 'Service Times', 'rockpress' ),
+			'title'			=> __( 'Service Times', 'ft-rockpress' ),
 			'panel'			=> 'rockpress',
 			'priority'		=> 10,
 		) );
@@ -89,8 +89,8 @@ class RockPress_Customizer {
 		) );
 
 		$wp_customize->add_control(  new FT_Section_Header_Control( $wp_customize, 'rockpress_service_times_colors_section', array(
-			'label'			=> __( 'Colors', 'rockpress' ),
-			'description'	=> __( 'Here you can override some of the colors.', 'rockpress' ),
+			'label'			=> __( 'Colors', 'ft-rockpress' ),
+			'description'	=> __( 'Here you can override some of the colors.', 'ft-rockpress' ),
 			'section'		=> 'rockpress_service_times',
 			'priority'		=> 10,
 		) ) );
@@ -106,7 +106,7 @@ class RockPress_Customizer {
 
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control( $wp_customize, 'rockpress_service_times_background_color', array(
-					'label'		=> __( 'Background Color', 'rockpress' ),
+					'label'		=> __( 'Background Color', 'ft-rockpress' ),
 					'section'	=> 'rockpress_service_times',
 					'priority'	=> '20',
 				)
@@ -124,7 +124,7 @@ class RockPress_Customizer {
 
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control( $wp_customize, 'rockpress_service_times_foreground_color', array(
-					'label'		=> __( 'Foreground Color', 'rockpress' ),
+					'label'		=> __( 'Foreground Color', 'ft-rockpress' ),
 					'section'	=> 'rockpress_service_times',
 					'priority'	=> '30',
 				)

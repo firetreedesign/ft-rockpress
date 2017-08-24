@@ -51,12 +51,12 @@ class RockPress_Settings_Import extends RockPress_Settings {
 			'rockpress_import'
 		);
 
-		$import_schedule = __( 'No import jobs are currently scheduled.', 'rockpress' );
+		$import_schedule = __( 'No import jobs are currently scheduled.', 'ft-rockpress' );
 		$import_active = false;
 
 		$import_jobs = apply_filters( 'rockpress_import_jobs', array() );
 		if ( 0 < count( $import_jobs ) ) {
-			$import_schedule = __( 'Scheduled to run in approximately ', 'rockpress' ) . human_time_diff( strtotime( 'now' ), wp_next_scheduled( 'rockpress_maintenance' ) );
+			$import_schedule = __( 'Scheduled to run in approximately ', 'ft-rockpress' ) . human_time_diff( strtotime( 'now' ), wp_next_scheduled( 'rockpress_maintenance' ) );
 			$import_active = true;
 		}
 
@@ -65,7 +65,7 @@ class RockPress_Settings_Import extends RockPress_Settings {
 	     */
 	    add_settings_field(
 	        'auto_import',
-	        '<strong>' . __( 'Automatic Import', 'rockpress' ) . '</strong>',
+	        '<strong>' . __( 'Automatic Import', 'ft-rockpress' ) . '</strong>',
 	        array( $this, 'text_callback' ),
 	        'rockpress_import',
 	        'rockpress_import_section',
@@ -88,7 +88,7 @@ class RockPress_Settings_Import extends RockPress_Settings {
 
 	    	add_settings_field(
 	    		'last_import',
-	    		'<strong>' . __( 'Last Import', 'rockpress' ) . '</strong>',
+	    		'<strong>' . __( 'Last Import', 'ft-rockpress' ) . '</strong>',
 	    		array( $this, 'text_callback' ),
 	    		'rockpress_import',
 	    		'rockpress_import_section',
@@ -109,7 +109,7 @@ class RockPress_Settings_Import extends RockPress_Settings {
 
 	    	add_settings_field(
 	    		'import_actions',
-	    		'<strong>' . __( 'Actions', 'rockpress' ) . '</strong>',
+	    		'<strong>' . __( 'Actions', 'ft-rockpress' ) . '</strong>',
 	    		array( $this, 'text_callback' ),
 	    		'rockpress_import',
 	    		'rockpress_import_section',
@@ -139,7 +139,7 @@ class RockPress_Settings_Import extends RockPress_Settings {
 	 * @return void
 	 */
 	public function data_import_section_callback() {
-		echo '<p>' . esc_html__( 'We will automatically import the data from RockRMS for you every hour.', 'rockpress' ) . '</p>';
+		echo '<p>' . esc_html__( 'We will automatically import the data from RockRMS for you every hour.', 'ft-rockpress' ) . '</p>';
 	}
 
 	/**

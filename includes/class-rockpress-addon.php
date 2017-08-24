@@ -23,7 +23,7 @@ if ( ! class_exists( 'RockPress_Addon' ) ) :
 		 *
 		 * @var array
 		 */
-		private $endpoints;
+		private $controllers;
 
 		/**
 		 * Support Topics
@@ -53,11 +53,11 @@ if ( ! class_exists( 'RockPress_Addon' ) ) :
 	     */
 	    function __construct( $args ) {
 
-			if ( ! isset( $args['endpoints'] ) ) {
+			if ( ! isset( $args['controllers'] ) ) {
 				return;
 			}
 
-			$this->endpoints = $args['endpoints'];
+			$this->controllers = $args['controllers'];
 
 			if ( isset( $args['support_topics'] ) ) {
 				$this->support_topics = $args['support_topics'];
@@ -86,7 +86,7 @@ if ( ! class_exists( 'RockPress_Addon' ) ) :
 		 */
 		private function hooks() {
 
-			add_filter( 'rockpress_rock_endpoints', array( $this, 'setup_endpoints' ) );
+			add_filter( 'rockpress_rest_controllers', array( $this, 'setup_controllers' ) );
 			add_filter( 'rockpress_support_topics', array( $this, 'support_topics' ) );
 			add_filter( 'rockpress_import_jobs', array( $this, 'import_jobs' ) );
 			add_filter( 'rockpress_uninstall_settings', array( $this, 'uninstall_settings' ) );
@@ -94,26 +94,26 @@ if ( ! class_exists( 'RockPress_Addon' ) ) :
 		}
 
 		/**
-		 * Add the Rock Endpoints
+		 * Add the REST Controllers
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param  array $endpoints	Rock API Endpoints.
+		 * @param  array $controllers	REST Controllers.
 		 *
 		 * @return array
 		 */
-		public function setup_endpoints( $endpoints ) {
+		public function setup_controllers( $controllers ) {
 
-			if ( is_array( $this->endpoints ) ) {
+			if ( is_array( $this->controllers ) ) {
 
-				foreach ( $this->endpoints as $endpoint ) {
-					if ( ! in_array( $endpoint, $endpoints, true ) ) {
-						$endpoints[] = $endpoint;
+				foreach ( $this->controllers as $controller ) {
+					if ( ! in_array( $controller, $controllers, true ) ) {
+						$controllers[] = $controller;
 					}
 				}
 			}
 
-			return $endpoints;
+			return $controllers;
 
 		}
 
@@ -159,13 +159,13 @@ if ( ! class_exists( 'RockPress_Addon' ) ) :
 			}
 
 			foreach ( $this->import_jobs as $job ) {
-				if ( ! isset( $job['endpoint'] ) ) {
+				if ( ! isset( $job['controller'] ) ) {
 					continue;
 				}
-				if ( in_array( $job['endpoint'], $jobs, true ) ) {
+				if ( in_array( $job['controller'], $jobs, true ) ) {
 					continue;
 				}
-				$jobs[ $job['endpoint'] ] = $job;
+				$jobs[ $job['controller'] ] = $job;
 			}
 
 			return $jobs;

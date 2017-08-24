@@ -94,7 +94,7 @@ class RockPress_Rock_REST_API {
 		}
 
 		$defaults = array(
-			'endpoint'			=> null,
+			'controller'		=> null,
 			'id'				=> null,
 			'filter'			=> null,
 			'top'				=> null,
@@ -107,7 +107,7 @@ class RockPress_Rock_REST_API {
 		$args = wp_parse_args( $args, $defaults );
 
 		// Construct the URL.
-		$get_url = trailingslashit( $this->domain ) . $args['endpoint'];
+		$get_url = trailingslashit( $this->domain ) . $args['controller'];
 
 		// If there is an ID, then add it to the URL.
 		if ( ! is_null( $args['id'] ) ) {
@@ -136,7 +136,7 @@ class RockPress_Rock_REST_API {
 
 		// If no $cache_lifespan is specified, then retrive it from the filter.
 		if ( is_null( $args['cache_lifespan'] ) ) {
-			$args['cache_lifespan'] = apply_filters( 'rockpress_cache_' . strtolower( $args['endpoint'] ), 60 );
+			$args['cache_lifespan'] = apply_filters( 'rockpress_cache_' . strtolower( $args['controller'] ), 60 );
 		}
 
 		// Setup our variables.
@@ -175,8 +175,8 @@ class RockPress_Rock_REST_API {
 			$this->transient_fallback->set_transient( $transient_name, $rock_data, $args['cache_lifespan'] );
 		}
 
-		$endpoint = strtolower( $args['endpoint'] );
-		do_action( "rockpress_after_rock_get_{$endpoint}", $rock_data, $args );
+		$controller = strtolower( $args['controller'] );
+		do_action( "rockpress_after_rock_get_{$controller}", $rock_data, $args );
 
 		if ( true === $args['raw_response'] ) {
 			return $response;
@@ -205,7 +205,7 @@ class RockPress_Rock_REST_API {
 		}
 
 		$defaults = array(
-			'endpoint'			=> null,
+			'controller'		=> null,
 			'id'				=> null,
 			'body'				=> null,
 			'cache_lifespan'	=> null,
@@ -215,7 +215,7 @@ class RockPress_Rock_REST_API {
 		$args = wp_parse_args( $args, $defaults );
 
 		// Construct the URL.
-		$url = trailingslashit( $this->domain ) . $args['endpoint'];
+		$url = trailingslashit( $this->domain ) . $args['controller'];
 
 		// If there is an ID, then add it to the URL.
 		if ( ! is_null( $args['id'] ) ) {
@@ -224,7 +224,7 @@ class RockPress_Rock_REST_API {
 
 		// If no $cache_lifespan is specified, then retrive it from the filter.
 		if ( is_null( $args['cache_lifespan'] ) ) {
-			$args['cache_lifespan'] = apply_filters( 'rockpress_cache_' . strtolower( $args['endpoint'] ), 60 );
+			$args['cache_lifespan'] = apply_filters( 'rockpress_cache_' . strtolower( $args['controller'] ), 60 );
 		}
 
 		// Setup our variables.
@@ -267,8 +267,8 @@ class RockPress_Rock_REST_API {
 			$this->transient_fallback->set_transient( $transient_name, $rock_data, $args['cache_lifespan'] );
 		}
 
-		$endpoint = strtolower( $args['endpoint'] );
-		do_action( "rockpress_after_rock_get_{$endpoint}", $rock_data, $args );
+		$controller = strtolower( $args['controller'] );
+		do_action( "rockpress_after_rock_get_{$controller}", $rock_data, $args );
 
 		if ( true === $args['raw_response'] ) {
 			return $response;
@@ -320,7 +320,7 @@ class RockPress_Rock_REST_API {
 	public function test() {
 
 		$response = $this->get( array(
-			'endpoint'		=> 'Campuses',
+			'controller'	=> 'Campuses',
 			'refresh_cache'	=> 1,
 			'raw_response'	=> true,
 		) );
@@ -334,14 +334,14 @@ class RockPress_Rock_REST_API {
 	}
 
 	/**
-	 * Return the default cache lifespan for a endpoint.
+	 * Return the default cache lifespan for a controller.
 	 *
-	 * @param	string $endpoint	The Rock endpoint.
+	 * @param	string $controller	The Rock controller.
 	 *
 	 * @return	int
 	 */
-	public function cache_lifespan( $endpoint ) {
-		return apply_filters( 'rockpress_cache_' . strtolower( $endpoint ), 60 );
+	public function cache_lifespan( $controller ) {
+		return apply_filters( 'rockpress_cache_' . strtolower( $controller ), 60 );
 	}
 
 }
