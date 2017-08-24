@@ -3,7 +3,7 @@ Contributors: firetree, danielmilner
 Tags: church, rockrms, chms, rock rms
 Requires at least: 4.3
 Tested up to: 4.8.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://ww.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,12 @@ Extend the capabilities of RockPress with these add-ons:
 2. Getting Started
 
 == Changelog ==
+
+= 1.0.4 =
+* Fixed the inability to deactivate add-on licenses.
+
+= 1.0.3 =
+* The readme contained some invalid URLs.
 
 = 1.0.2 =
 * Fixed an issue with the support beacon not displaying.

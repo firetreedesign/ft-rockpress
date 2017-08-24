@@ -265,11 +265,11 @@ if ( ! class_exists( 'RockPress_License' ) ) :
 		 */
 		public function deactivate_license() {
 
-			if ( ! isset( $_POST['ccbpress_licenses'] ) ) {
+			if ( ! isset( $_POST['rockpress_licenses'] ) ) {
 				return;
 			}
 
-			if ( ! isset( $_POST['ccbpress_licenses'][ $this->item_shortname . '_license_key' ] ) ) {
+			if ( ! isset( $_POST['rockpress_licenses'][ $this->item_shortname . '_license_key' ] ) ) {
 				return;
 			}
 
