@@ -169,11 +169,12 @@ class RockPress_Admin_Pages {
 		<hr />
 		<div class="feature-section two-col">
 			<div class="col">
-				<h3><?php esc_html_e( '2. Assign a Security Role', 'ft-rockpress' ); ?></h3>
-				<p><?php esc_html_e( 'Next, you will need to assign a Security Role so that the REST Key has permission to access the data inside Rock. Within Rock, navigate to Security > Security Roles. Select the Rock Administration role, then add the REST Key that you created in Step 1 to this Security Role.', 'ft-rockpress' ); ?></p>
+				<h3><?php esc_html_e( '2. Assign the REST Key to each REST Controller', 'ft-rockpress' ); ?></h3>
+				<?php echo sprintf( '<p>%s <strong>%s</strong> %s <em>%s</em></p>', esc_html__( 'For this step, you will need get a list of each REST Controller that RockPress needs access to. You can get this list by logging in to your WordPress Admin, and navigating to RockPress > Settings. Click on the', 'ft-rockpress' ), esc_html__( 'REST Controllers', 'ft-rockpress' ), esc_html__( 'button to view a list of the controllers that have been registered with RockPress.', 'ft-rockpress' ), esc_html__( 'This list will change as add-ons and updates are installed/removed. So, you may need to revisit this after installing an update or an add-on.', 'ft-rockpress' ) ); ?>
+				<?php echo sprintf( '<p>%s <strong>%s</strong> %s <strong>%s</strong> %s</p>', esc_html__( 'Now that you have the list of REST Controllers, go to your Rock RMS site and navigate to Security > REST Controllers. Find each Controller Name from your list and click on the Permissions (lock) button to the right of the name. Click on the', 'ft-rockpress' ), esc_html__( 'Add User', 'ft-rockpress' ), esc_html__( 'button and search for the', 'ft-rockpress' ), esc_html__( 'RockPress', 'ft-rockpress' ), esc_html__( 'REST Key that we created in the previous step. Add the user with at least View permissions for each Controller. Repeat this step for each REST Controller.', 'ft-rockpress' ) ); ?>
 			</div>
 			<div class="col">
-				<img src="<?php echo esc_attr( ROCKPRESS_PLUGIN_URL ) . '/assets/images/rock-security-role.png'; ?>" />
+				<img src="<?php echo esc_attr( ROCKPRESS_PLUGIN_URL ) . '/assets/images/rock-permissions.png'; ?>" />
 			</div>
 		</div>
 		<hr />
