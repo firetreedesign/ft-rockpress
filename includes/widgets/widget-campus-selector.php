@@ -44,7 +44,7 @@ if ( ! class_exists( 'RockPress_Widget_Campus_Selector' ) ) :
 			wp_enqueue_style( 'rockpress' );
 
 			$campuses_data = json_decode( RockPress()->rock->get( array(
-				'endpoint'	=> 'Campuses',
+				'controller' => 'Campuses',
 			) ) );
 
 			echo $args['before_widget'];

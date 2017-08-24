@@ -189,16 +189,28 @@ class RockPress_Settings_Rock extends RockPress_Settings {
 	 * @return array
 	 */
 	public function help_tabs( $help_tabs ) {
+
+		$controllers = apply_filters( 'rockpress_rest_controllers', array() );
+		sort( $controllers );
+
 		ob_start();
 		?>
-		<p>Help goes here...
+		<p>Your REST Key must have permission to use the following REST Controllers:
+		<ul>
+		<?php foreach ( $controllers as $controller ) : ?>
+		    <li><?php echo $controller; ?></li>
+		<?php endforeach; ?>
+		<?php if ( count( $controllers ) === 0 ) : ?>
+			<li><?php _e( 'There are no REST Controllers registered with RockPress.', 'ft-rockpress' ); ?></li>
+		<?php endif; ?>
+		</ul></p>
 		<?php
 		$content = ob_get_clean();
 
 		$help_tabs[] = array(
-			'id'		=> 'rockpress-rock',
+			'id'		=> 'rockpress-rest-controllers',
 			'tab_id'	=> 'rock',
-			'title'		=> __( 'Rock RMS', 'ft-rockpress' ),
+			'title'		=> __( 'REST Controllers', 'ft-rockpress' ),
 			'content'	=> $content,
 		);
 

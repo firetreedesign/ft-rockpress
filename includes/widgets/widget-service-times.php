@@ -49,8 +49,8 @@ if ( ! class_exists( 'RockPress_Widget_Service_Times' ) ) :
 			}
 
 			$campus_data = json_decode( RockPress()->rock->get( array(
-				'endpoint'	=> 'Campuses',
-				'id'		=> $instance['campus'],
+				'controller'	=> 'Campuses',
+				'id'			=> $instance['campus'],
 			) ) );
 
 			echo $args['before_widget'];

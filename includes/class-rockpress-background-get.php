@@ -34,12 +34,12 @@ class RockPress_Background_Get extends WP_Background_Process {
 	protected function task( $item ) {
 
 		// Remove if no task is set.
-		if ( ! isset( $item ) || ! is_array( $item ) || ! isset( $item['endpoint'] ) ) {
+		if ( ! isset( $item ) || ! is_array( $item ) || ! isset( $item['controller'] ) ) {
 			return false;
 		}
 
 		$defaults = array(
-			'endpoint'			=> null,
+			'controller'		=> null,
 			'id'				=> null,
 			'filter'			=> null,
 			'top'				=> null,
@@ -54,15 +54,15 @@ class RockPress_Background_Get extends WP_Background_Process {
 		 * Update our import status
 		 */
 		if ( ! is_null( $item['top'] ) && ! is_null( $item['skip'] ) ) {
-			update_option( 'rockpress_import_in_progress', 'Processing top ' . $item['top'] . ' from ' . $item['endpoint'] . ' at offset ' . $item['skip'] . '...' );
+			update_option( 'rockpress_import_in_progress', 'Processing top ' . $item['top'] . ' from ' . $item['controller'] . ' at offset ' . $item['skip'] . '...' );
 		} else {
-			update_option( 'rockpress_import_in_progress', 'Processing ' . $item['endpoint'] . '...' );
+			update_option( 'rockpress_import_in_progress', 'Processing ' . $item['controller'] . '...' );
 		}
 
 		$response = RockPress()->rock->get( $item );
 
-		$endpoint = strtolower( $item['endpoint'] );
-		$response = apply_filters( "rockpress_background_get_{$endpoint}", $response, $item );
+		$controller = strtolower( $item['controller'] );
+		$response = apply_filters( "rockpress_background_get_{$controller}", $response, $item );
 
 		$response = json_decode( $response, true );
 

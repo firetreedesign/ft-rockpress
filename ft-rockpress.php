@@ -89,6 +89,7 @@ if ( ! class_exists( 'RockPress' ) ) :
 	            self::$instance->setup_constants();
 	            self::$instance->includes();
 				self::$instance->actions();
+				self::$instance->register_addon();
 
 	            self::$instance->transients	= new RockPress_Transients();
 	            self::$instance->rock		= new RockPress_Rock_REST_API();
@@ -128,6 +129,23 @@ if ( ! class_exists( 'RockPress' ) ) :
 			if ( ! defined( 'ROCKPRESS_PLUGIN_URL' ) ) {
 				define( 'ROCKPRESS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 			}
+
+		}
+
+		/**
+		 * Register the addon with RockPress
+		 *
+		 * @since 1.0.0
+		 *
+		 * @return void
+		 */
+		private function register_addon() {
+
+			$addon = new RockPress_Addon( array(
+				'controllers' => array(
+					'Campuses',
+				),
+			) );
 
 		}
 
