@@ -3,7 +3,7 @@ Contributors: firetree, danielmilner
 Tags: church, rockrms, chms, rock rms
 Requires at least: 4.3
 Tested up to: 4.8.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://ww.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,9 @@ Extend the capabilities of RockPress with these add-ons:
 2. Getting Started
 
 == Changelog ==
+
+= 1.0.5 =
+* The Service Times widget was not populating Campuses correctly.
 
 = 1.0.4 =
 * Fixed the inability to deactivate add-on licenses.

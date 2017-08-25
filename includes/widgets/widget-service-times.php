@@ -99,7 +99,7 @@ if ( ! class_exists( 'RockPress_Widget_Service_Times' ) ) :
 			$campus = ! empty( $instance['campus'] ) ? $instance['campus'] : '';
 
 			$campuses = json_decode( RockPress()->rock->get( array(
-				'endpoint' => 'Campuses',
+				'controller' => 'Campuses',
 			) ) );
 			?>
 			<p>
