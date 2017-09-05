@@ -18,7 +18,7 @@ class RockPress_Transients {
 	 *
 	 * @var string
 	 */
-	private $prefix;
+	public $prefix;
 
 	/**
 	 * Fallback expiration in minutes
