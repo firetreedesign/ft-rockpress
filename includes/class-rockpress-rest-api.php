@@ -214,6 +214,10 @@ class RockPress_Rock_REST_API {
 		);
 		$args = wp_parse_args( $args, $defaults );
 
+		if ( is_null( $args['controller'] ) ) {
+			return false;
+		}
+
 		// Construct the URL.
 		$url = trailingslashit( $this->domain ) . $args['controller'];
 
@@ -233,7 +237,7 @@ class RockPress_Rock_REST_API {
 
 		// Check the transient cache if the cache is not set to 0.
 		if ( $args['cache_lifespan'] > 0 && 0 === $args['refresh_cache'] ) {
-			$rock_data = $this->transient_fallback->get_transient( $transient_name, 'rockpress_schedule_get', $args );
+			$rock_data = get_transient( RockPress()->transients->prefix . $transient_name );
 		}
 
 		// Check for a cached copy in the transient data.
@@ -264,11 +268,11 @@ class RockPress_Rock_REST_API {
 
 		// Save the transient data according to the $cache_lifespan.
 		if ( $args['cache_lifespan'] > 0 ) {
-			$this->transient_fallback->set_transient( $transient_name, $rock_data, $args['cache_lifespan'] );
+			set_transient( RockPress()->transients->prefix . $transient_name, $rock_data, $args['cache_lifespan'] * MINUTE_IN_SECONDS );
 		}
 
 		$controller = strtolower( $args['controller'] );
-		do_action( "rockpress_after_rock_get_{$controller}", $rock_data, $args );
+		do_action( "rockpress_after_rock_post_{$controller}", $rock_data, $args );
 
 		if ( true === $args['raw_response'] ) {
 			return $response;
@@ -345,3 +349,11 @@ class RockPress_Rock_REST_API {
 	}
 
 }
+
+function rockpress_schedule_get( $args ) {
+	if ( ! isset( $args['controller'] ) || is_null( $args['controller'] ) ) {
+		return;
+	}
+	RockPress()->rock->get( $args );
+}
+add_action( 'rockpress_schedule_get', 'rockpress_schedule_get', 10, 1 );
