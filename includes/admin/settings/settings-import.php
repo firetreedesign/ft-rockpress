@@ -116,7 +116,7 @@ class RockPress_Settings_Import extends RockPress_Settings {
 				array(
 	                'header' => null,
 	                'title' => null,
-	                'content' => '<a class="button button-primary" id="rockpress-manual-import-button" data-rockpress-status="' . $import_status . '">Import Now</a> <a class="button button-secondary" id="rockpress-reset-import-button">Reset</a><div id="rockpress-import-status"></div>',
+	                'content' => '<a class="button button-primary" id="rockpress-manual-import-button" data-rockpress-status="' . $import_status . '">Import Now</a> <a class="button" id="rockpress-reset-import-button">Reset</a><div id="rockpress-import-status"></div>',
 	            )
 	    	);
 

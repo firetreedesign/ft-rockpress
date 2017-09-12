@@ -23,7 +23,7 @@ jQuery( document ).ready(function($) {
 			};
 			jQuery.post( ajaxurl, data,  function( response ) {
 				if ( 'started' === response ) {
-					self.updateProgress( [{'text':'Process is running...'}], 'running');
+					self.updateProgress( [{'text':rockpress_vars.messages.process_running}], 'running');
 					self.checkProgress( self );
 				} else {
 					self.enableButton();
@@ -36,12 +36,8 @@ jQuery( document ).ready(function($) {
 			var container	= jQuery('#rockpress-import-status');
 			var notice		= jQuery('<div />');
 			var p			= jQuery('<p />');
-			var spinner		= jQuery('<span />');
-			var check		= jQuery('<span />');
 
 			notice.attr('class', 'notice notice-info');
-			spinner.attr('class', 'spinner is-active');
-			check.attr('class', 'dashicons dashicons-yes');
 
 			for ( var key in content ) {
 				if ( content.hasOwnProperty(key) ) {
@@ -58,14 +54,6 @@ jQuery( document ).ready(function($) {
 				}
 			}
 
-			switch( status ) {
-				case 'running':
-					p.prepend(spinner);
-					break;
-				case 'done':
-					p.prepend(check);
-					break;
-			}
 			notice.append(p);
 			container.html('');
 			container.append(notice);
@@ -76,13 +64,14 @@ jQuery( document ).ready(function($) {
 		}
 
 		this.enableButton = function() {
-			jQuery( '#rockpress-manual-import-button' ).attr('disabled', false);
-			jQuery( '#rockpress-manual-import-button' ).attr('disabled', false);
+			jQuery( '#rockpress-manual-import-button' ).text(rockpress_vars.messages.done).removeClass('updating-message').addClass('updated-message');
+			setTimeout(function(){
+				jQuery( '#rockpress-manual-import-button' ).text(rockpress_vars.messages.manual_import_button).attr('disabled', false).removeClass('updated-message');
+			}, 3000);
 		}
 
 		this.disableButton = function() {
-			jQuery( '#rockpress-manual-import-button' ).attr('disabled', true);
-			jQuery( '#rockpress-manual-import-button' ).attr('disabled', true);
+			jQuery( '#rockpress-manual-import-button' ).text(rockpress_vars.messages.running).attr('disabled', true).addClass('updating-message');
 		}
 
 		this.checkProgress = function( self ) {
@@ -97,7 +86,7 @@ jQuery( document ).ready(function($) {
 						clearInterval( checkProgressHandle );
 						self.getLastImport();
 						self.enableButton();
-						self.updateProgress( [{'text':' Done'}], 'done');
+						self.updateProgress( [{'text':rockpress_vars.messages.done}], 'done');
 						setTimeout(function(){
 							self.progress('');
 						}, 3000);
@@ -136,13 +125,13 @@ jQuery( document ).ready(function($) {
 
 		this.confirm = function( event ) {
 			var self = event.data.self;
-			if ( confirm( rockpress_vars.reset_import_dialog ) == true) {
+			if ( confirm( rockpress_vars.messages.reset_import_confirmation ) == true) {
 		        self.startReset();
 		    }
 		}
 
 		this.startReset = function() {
-			jQuery( '#rockpress-reset-import-button' ).attr('disabled', true);
+			jQuery( '#rockpress-reset-import-button' ).text(rockpress_vars.messages.running).attr('disabled', true).addClass('updating-message');
 			data = {
 				action: 'rockpress_reset_import',
 				nonce: rockpress_vars.nonce
@@ -150,10 +139,11 @@ jQuery( document ).ready(function($) {
 
 			jQuery.post( ajaxurl, data,  function( response ) {
 				jQuery('.rockpress-last-import').text( response ).css( 'font-weight', 'bold' );
+				jQuery( '#rockpress-reset-import-button' ).text(rockpress_vars.messages.done).removeClass('updating-message').addClass('updated-message');
 				setTimeout(function(){
-	                jQuery('.rockpress-last-import').css( 'font-weight', 'normal' );;
-	            }, 3000);
-				jQuery( '#rockpress-reset-import-button' ).attr('disabled', false);
+					jQuery('.rockpress-last-import').css( 'font-weight', 'normal' );
+					jQuery( '#rockpress-reset-import-button' ).text(rockpress_vars.messages.reset_import_button).attr('disabled', false).removeClass('updated-message');
+				}, 3000);
 			});
 			return false;
 		}
