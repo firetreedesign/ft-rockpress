@@ -3,7 +3,8 @@ Contributors: firetree, danielmilner
 Tags: church, rockrms, chms, rock rms
 Requires at least: 4.3
 Tested up to: 4.8.1
-Stable tag: 1.0.6
+Requires PHP: 5.3
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://ww.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +40,12 @@ Extend the capabilities of RockPress with these add-ons:
 2. Getting Started
 
 == Changelog ==
+
+= 1.0.7 =
+* Added support for $orderby, $select, and $expand in GET requests.
+* Removed some unnecessary CSS classes.
+* Improved the interface during AJAX requests.
+* Moved all JavaScript messages to script localization so that they are available to translate.
 
 = 1.0.6 =
 * Fixed an issue with the POST cache.
