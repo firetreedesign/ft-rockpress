@@ -99,6 +99,9 @@ class RockPress_Rock_REST_API {
 			'filter'			=> null,
 			'top'				=> null,
 			'skip'				=> null,
+			'orderby'			=> null,
+			'select'			=> null,
+			'expand'			=> null,
 			'load_attributes'	=> null,
 			'cache_lifespan'	=> null,
 			'refresh_cache'		=> 0,
@@ -127,6 +130,21 @@ class RockPress_Rock_REST_API {
 		// If there is a $skip, then add it to the URL.
 		if ( ! is_null( $args['skip'] ) ) {
 			$get_url = add_query_arg( '$skip', $args['skip'], $get_url );
+		}
+
+		// If there is a $orderby, then add it to the URL.
+		if ( ! is_null( $args['orderby'] ) ) {
+			$get_url = add_query_arg( '$orderby', $args['orderby'], $get_url );
+		}
+
+		// If there is a $select, then add it to the URL.
+		if ( ! is_null( $args['select'] ) ) {
+			$get_url = add_query_arg( '$select', $args['select'], $get_url );
+		}
+
+		// If there is a $expand, then add it to the URL.
+		if ( ! is_null( $args['expand'] ) ) {
+			$get_url = add_query_arg( '$expand', $args['expand'], $get_url );
 		}
 
 		// If there is a $skip, then add it to the URL.

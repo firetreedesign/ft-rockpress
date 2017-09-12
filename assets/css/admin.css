@@ -34,7 +34,7 @@
 .rockpress-addons .rockpress-addon { box-sizing: border-box; background: #fff; border: 1px solid #ccc; float: left; padding: 15px 15px 45px 15px; position: relative; margin: 0 15px 15px 0; width: 350px; min-height: 350px; }
 .rockpress-addons .rockpress-addon .rockpress-addon-title { margin-top: 0; }
 .rockpress-addons .rockpress-addon > a > img { width: 100%; height: auto; }
-.rockpress-addons .rockpress-addon .button-secondary { position: absolute; bottom: 15px; left: 15px; }
+.rockpress-addons .rockpress-addon .button { position: absolute; bottom: 15px; left: 15px; }
 @media screen and (max-width:720px) {
 	.rockpress-addons .rockpress-addon { width: 100%; margin: 0 0 15px 0; }
 }
