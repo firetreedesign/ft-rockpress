@@ -104,7 +104,6 @@ class RockPress_Admin_Page_Tabs {
 
 		$actions[] = array(
 			'tab_id'	=> 'rock',
-			'type'		=> 'secondary',
 			'class'		=> null,
 			'link'		=> 'https://rockrms.com/',
 			'target'	=> '_blank',
@@ -113,7 +112,6 @@ class RockPress_Admin_Page_Tabs {
 
 		$actions[] = array(
 			'tab_id'	=> 'licenses',
-			'type'		=> 'secondary',
 			'class'		=> null,
 			'link'		=> 'https://rockpresswp.com/account/',
 			'target'	=> '_blank',
@@ -122,7 +120,6 @@ class RockPress_Admin_Page_Tabs {
 
 		$actions[] = array(
 			'tab_id'	=> 'rock',
-			'type'		=> 'secondary',
 			'class'		=> 'rockpress-rest-controllers',
 			'link'		=> '#',
 			'target'	=> null,

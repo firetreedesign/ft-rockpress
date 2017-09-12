@@ -187,7 +187,7 @@ class RockPress_Admin_Pages {
 					<li><?php esc_html_e( 'The URL you use to access your Rock RMS site.', 'ft-rockpress' ); ?></li>
 					<li><?php esc_html_e( 'The REST Key that you created.', 'ft-rockpress' ); ?></li>
 				</ul>
-				<p><a class="button button-secondary" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'rockpress-settings' ), 'admin.php' ) ) ); ?>"><?php esc_html_e( 'Enter Your REST Key', 'ft-rockpress' ); ?></a></p>
+				<p><a class="button" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'rockpress-settings' ), 'admin.php' ) ) ); ?>"><?php esc_html_e( 'Enter Your REST Key', 'ft-rockpress' ); ?></a></p>
 			</div>
 			<div class="col">
 				<img src="<?php echo esc_attr( ROCKPRESS_PLUGIN_URL ) . '/assets/images/rest-key-information.png'; ?>" />
@@ -198,7 +198,7 @@ class RockPress_Admin_Pages {
 			<div class="col">
 				<h3><?php esc_html_e( '4. Add some widgets', 'ft-rockpress' ); ?></h3>
 				<p><?php esc_html_e( 'You are now ready to use any of the widgets that come with RockPress.', 'ft-rockpress' ); ?></p>
-				<p><a class="button button-secondary" href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Manage Widgets', 'ft-rockpress' ); ?></a></p>
+				<p><a class="button" href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>"><?php esc_html_e( 'Manage Widgets', 'ft-rockpress' ); ?></a></p>
 			</div>
 		</div>
 		<hr />
@@ -206,7 +206,7 @@ class RockPress_Admin_Pages {
 			<div class="col">
 				<h3><?php esc_html_e( '5. Browse our add-ons', 'ft-rockpress' ); ?></h3>
 				<p><?php esc_html_e( 'Feel free to browse our add-ons to add additional functionality to RockPress.', 'ft-rockpress' ); ?></p>
-				<p><a class="button button-primary" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'rockpress-addons' ), 'admin.php' ) ) ); ?>"><?php esc_html_e( 'Browse Add-ons', 'ft-rockpress' ); ?></a></p>
+				<p><a class="button" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'rockpress-addons' ), 'admin.php' ) ) ); ?>"><?php esc_html_e( 'Browse Add-ons', 'ft-rockpress' ); ?></a></p>
 			</div>
 		</div>
 		<?php
@@ -247,7 +247,7 @@ class RockPress_Admin_Pages {
 	            <div class="rockpress_tab_actions">
 	            <?php foreach ( $all_tab_actions as $tab_action ) : ?>
 	                <?php if ( isset( $tab_action['tab_id'] ) && $tab_action['tab_id'] === $active_tab ) : ?>
-	                    <a class="button button-<?php echo esc_html( $tab_action['type'] ); ?><?php echo is_null( $tab_action['class'] ) ? esc_attr( '' ) : esc_attr( ' ' . $tab_action['class'] ); ?>" href="<?php echo esc_url( $tab_action['link'] ); ?>"<?php echo ( is_null( $tab_action['target'] ) ) ? '' : ' target="' . esc_attr( $tab_action['target'] ) . '"'; ?>><?php echo $tab_action['title']; ?></a>
+	                    <a class="button<?php echo is_null( $tab_action['class'] ) ? esc_attr( '' ) : esc_attr( ' ' . $tab_action['class'] ); ?>" href="<?php echo esc_url( $tab_action['link'] ); ?>"<?php echo ( is_null( $tab_action['target'] ) ) ? '' : ' target="' . esc_attr( $tab_action['target'] ) . '"'; ?>><?php echo $tab_action['title']; ?></a>
 	                <?php endif; ?>
 	            <?php endforeach; ?>
 	            </div>
@@ -338,7 +338,7 @@ class RockPress_Admin_Pages {
 							<h3 class="rockpress-addon-title"><?php echo esc_html( $addon->title ); ?></h3>
 							<a href="<?php echo esc_attr( $addon->link ); ?>" target="_blank"><img src="<?php echo esc_attr( $addon->thumbnail ); ?>" /></a>
 							<p><?php echo esc_html( $addon->excerpt ); ?></p>
-							<a href="<?php echo esc_attr( $addon->link ); ?>" target="_blank" class="button-secondary">Get this add-on</a>
+							<a href="<?php echo esc_attr( $addon->link ); ?>" target="_blank" class="button">Get this add-on</a>
 						</div>
 					<?php
 					endforeach;

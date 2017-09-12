@@ -102,7 +102,7 @@ class RockPress_Settings_Rock extends RockPress_Settings {
 	            array(
 	                'header' => null,
 	                'title' => null,
-	                'content' => '<button class="button button-secondary" id="rockpress-rock-connection-test-button">Run Test Now</button> <img src="' . admin_url('/images/spinner-2x.gif') . '" width="16" height="16" class="waiting" id="rockpress-rock-connection-test-loading" style="display: none;" /><div id="rockpress-rock-connection-test-results"></div>',
+	                'content' => '<button class="button" id="rockpress-rock-connection-test-button">Run Test Now</button><div id="rockpress-rock-connection-test-results"></div>',
 	            )
 	        );
 
