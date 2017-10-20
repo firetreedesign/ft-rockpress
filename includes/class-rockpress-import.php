@@ -27,7 +27,7 @@ class RockPress_Import {
 		add_action( 'rockpress_maintenance',				__CLASS__ . '::run' );
 		add_action( 'rockpress_import_job_queued',			__CLASS__ . '::import_job_queued' );
 		add_action( 'rockpress_import_jobs_dispatched',		__CLASS__ . '::import_jobs_dispatched' );
-		add_action( 'rockpress_background_get_complete',	__CLASS__ . '::import_complete', 100 );
+		add_action( 'rockpress_background_get_complete',	__CLASS__ . '::import_complete', 1000 );
 		add_action( 'wp_ajax_rockpress_import',				__CLASS__ . '::ajax_run' );
 		add_action( 'wp_ajax_rockpress_import_status',		__CLASS__ . '::ajax_status' );
 		add_action( 'wp_ajax_rockpress_last_import',		__CLASS__ . '::ajax_last_import' );
@@ -45,10 +45,13 @@ class RockPress_Import {
 	public static function run() {
 
 		if ( ! RockPress()->rock->is_connected() ) {
+			delete_option( 'rockpress_current_import' );
 			delete_option( 'rockpress_last_import' );
 			delete_option( 'rockpress_import_in_progress' );
 			return;
 		}
+
+		update_option( 'rockpress_current_import', date( 'Y-m-d H:i:s', current_time( 'timestamp' ) ) );
 
 		$jobs = apply_filters( 'rockpress_import_jobs', array() );
 
@@ -106,8 +109,9 @@ class RockPress_Import {
 		/**
 		 * Update our import status
 		 */
+		update_option( 'rockpress_last_import', get_option( 'rockpress_current_import' ) );
 		delete_option( 'rockpress_import_in_progress' );
-		update_option( 'rockpress_last_import', date( 'Y-m-d H:i:s', current_time( 'timestamp' ) ) );
+		delete_option( 'rockpress_current_import' );
 
 	}
 
