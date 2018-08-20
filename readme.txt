@@ -2,9 +2,9 @@
 Contributors: firetree, danielmilner
 Tags: church, rockrms, chms, rock rms
 Requires at least: 4.3
-Tested up to: 4.8.2
+Tested up to: 4.9
 Requires PHP: 5.3
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://ww.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,9 @@ Extend the capabilities of RockPress with these add-ons:
 2. Getting Started
 
 == Changelog ==
+
+= 1.0.9 =
+* Updated the Getting Started documentation to reference the new plugin available in the Rock Shop.
 
 = 1.0.8 =
 * Improved the data import functions.
