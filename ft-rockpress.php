@@ -3,7 +3,7 @@
  * Plugin Name: RockPress
  * Plugin URI: http://rockpresswp.com/
  * Description: Display information from Rock RMS on your WordPress site.
- * Version: 1.0.10
+ * Version: 1.0.11
  * Author: RockPress <support@rockpresswp.com>
  * Author URI: https://rockpresswp.com/
  * Text Domain: ft-rockpress
@@ -66,7 +66,7 @@ if ( ! class_exists( 'RockPress' ) ) :
 	     * @var string
 	     * @since 1.0.0
 	     */
-	    public $version = '1.0.10';
+	    public $version = '1.0.11';
 
 		/**
 	     * Main RockPress Instance
@@ -164,6 +164,7 @@ if ( ! class_exists( 'RockPress' ) ) :
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/class-rockpress-addon.php';
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/class-rockpress-options.php';
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/class-rockpress-customizer.php';
+			require_once ROCKPRESS_PLUGIN_DIR . 'includes/class-rockpress-blocks.php';
 	        require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/admin-settings.php';
 	        require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/settings/settings-rock.php';
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/settings/settings-import.php';
