@@ -42,6 +42,9 @@ class RockPress_Customizer {
 	 * @return void
 	 */
 	public function customize_register( $wp_customize ) {
+
+		require_once ROCKPRESS_PLUGIN_DIR . 'lib/ft-customizer-controls/class-ft-section-header.php';
+
 		$this->add_panels( $wp_customize );
 		$this->add_sections( $wp_customize );
 		$this->add_settings( $wp_customize );
