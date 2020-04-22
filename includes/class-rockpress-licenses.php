@@ -82,13 +82,14 @@ if ( ! class_exists( 'RockPress_License' ) ) :
 	     * @param string $_item_name Item name.
 	     * @param string $_version   Version number.
 	     * @param string $_author    Author.
+		 * @param string $_item_shortname Item short name / slug.
 	     */
-	    function __construct( $_file, $_item_id, $_item_name, $_version, $_author ) {
+	    function __construct( $_file, $_item_id, $_item_name, $_version, $_author, $_item_shortname = null ) {
 
 	        $this->file				= $_file;
 			$this->item_name		= $_item_name;
 			$this->item_id			= $_item_id;
-			$this->item_shortname	= 'rockpress_' . $this->item_id;
+			$this->item_shortname	= is_null( $_item_shortname ) ? $this->item_id : $_item_shortname;
 			$this->version			= $_version;
 			$this->author			= $_author;
 			$this->license			= trim( $this->get_license_key() );
@@ -170,17 +171,31 @@ if ( ! class_exists( 'RockPress_License' ) ) :
 			 	return;
 			}
 
-			$edd_updater = new EDD_SL_Plugin_Updater(
-				$this->api_url,
-				$this->file,
-				array(
-					'version'	=> $this->version,
-					'license'	=> $this->license,
-					'item_name'	=> $this->item_name,
-					'author'	=> $this->author,
-					'url'		=> home_url(),
-				)
-			);
+			if ( is_numeric( $this->item_id ) ) {
+				new EDD_SL_Plugin_Updater(
+					$this->api_url,
+					$this->file,
+					array(
+						'version'	=> $this->version,
+						'license'	=> $this->license,
+						'item_id'	=> $this->item_id,
+						'author'	=> $this->author,
+						'url'		=> home_url(),
+					)
+				);
+			} else {
+				new EDD_SL_Plugin_Updater(
+					$this->api_url,
+					$this->file,
+					array(
+						'version'	=> $this->version,
+						'license'	=> $this->license,
+						'item_name'	=> $this->item_name,
+						'author'	=> $this->author,
+						'url'		=> home_url(),
+					)
+				);
+			}
 
 		}
 
@@ -225,12 +240,21 @@ if ( ! class_exists( 'RockPress_License' ) ) :
 				return;
 			}
 
-			$api_params = array(
-				'edd_action'	=> 'activate_license',
-				'license'		=> $license,
-				'item_name'		=> urlencode( $this->item_name ),
-				'url'			=> home_url(),
-			);
+			if ( is_numeric( $this->item_id ) ) {
+				$api_params = array(
+					'edd_action'	=> 'activate_license',
+					'license'		=> $license,
+					'item_id'		=> rawurlencode( $this->item_id ),
+					'url'			=> home_url(),
+				);
+			} else {
+				$api_params = array(
+					'edd_action'	=> 'activate_license',
+					'license'		=> $license,
+					'item_name'		=> rawurlencode( $this->item_name ),
+					'url'			=> home_url(),
+				);
+			}
 
 			$response = wp_remote_post(
 				$this->api_url,
@@ -279,12 +303,21 @@ if ( ! class_exists( 'RockPress_License' ) ) :
 
 			if ( isset( $_POST[ $this->item_shortname . '_license_key_deactivate' ] ) ) {
 
-				$api_params = array(
-					'edd_action'	=> 'deactivate_license',
-					'license'		=> $this->license,
-					'item_name'		=> urlencode( $this->item_name ),
-					'url'			=> home_url(),
-				);
+				if ( is_numeric( $this->item_id ) ) {
+					$api_params = array(
+						'edd_action'	=> 'deactivate_license',
+						'license'		=> $this->license,
+						'item_id'		=> rawurlencode( $this->item_id ),
+						'url'			=> home_url(),
+					);
+				} else {
+					$api_params = array(
+						'edd_action'	=> 'deactivate_license',
+						'license'		=> $this->license,
+						'item_name'		=> rawurlencode( $this->item_name ),
+						'url'			=> home_url(),
+					);
+				}
 
 				$response = wp_remote_post(
 					$this->api_url,

@@ -102,23 +102,9 @@ class RockPress_Admin_Scripts {
 		wp_localize_script( 'rockpress-beacon', 'rockpress_beacon_vars', array(
 			'customer_name'		=> $current_user->display_name,
 			'customer_email'	=> $current_user->user_email,
-			'ccbpress_ver'		=> RockPress()->version,
+			'rockpress_ver'		=> RockPress()->version,
 			'wp_ver'			=> get_bloginfo( 'version' ),
 			'php_ver'			=> phpversion(),
-			'topics'			=> apply_filters( 'rockpress_support_topics', array(
-				array(
-					'val'	=> 'general',
-					'label'	=> __( 'General question', 'ft-rockpress' ),
-				),
-				array(
-					'val'	=> 'rock-api-key',
-					'label'	=> __( 'Rock RMS API Key', 'ft-rockpress' ),
-				),
-				array(
-					'val'	=> 'bug',
-					'label'	=> __( 'I think I found a bug', 'ft-rockpress' ),
-				),
-			) ),
 		) );
 	}
 
