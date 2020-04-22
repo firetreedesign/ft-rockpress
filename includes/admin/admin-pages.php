@@ -126,13 +126,13 @@ class RockPress_Admin_Pages {
 				<p class="lead-description"><?php esc_html_e( 'We have widgets to display a variety of information.', 'ft-rockpress' ); ?></p>
 			</div>
 		</div>
-		<div class="feature-section two-col">
-			<div class="col">
+		<div class="feature-section has-2-columns">
+			<div class="column">
 				<h3><?php esc_html_e( 'Service Times Widget', 'ft-rockpress' ); ?></h3>
 				<img src="<?php echo esc_attr( ROCKPRESS_PLUGIN_URL ) . '/assets/images/widget-service-times.png'; ?>" />
 				<p><?php esc_html_e( 'Display service times for the selected Campus, straight from Rock RMS.', 'ft-rockpress' ); ?></p>
 			</div>
-			<div class="col">
+			<div class="column">
 				<h3><?php esc_html_e( 'Campus Selector Widget', 'ft-rockpress' ); ?></h3>
 				<img src="<?php echo esc_attr( ROCKPRESS_PLUGIN_URL ) . '/assets/images/widget-campus-selector.png'; ?>" />
 				<p><?php esc_html_e( 'Display links to each campus that is setup in Rock RMS.', 'ft-rockpress' ); ?></p>
