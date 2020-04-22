@@ -198,6 +198,9 @@ class RockPress_Transients {
 			}
 		}
 
+		// Flush the object cache.
+		wp_cache_flush();
+
 		return true;
 
 	}
