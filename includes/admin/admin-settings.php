@@ -344,15 +344,16 @@ class RockPress_Settings {
 
 		// Set the defaults.
 		$defaults = array(
-			'field_id'      => null,
-			'page_id'       => null,
-			'textarea_id'   => null,
-			'media_upload'	=> true,
-			'rows'			=> get_option( 'default_post_edit_rows', 10 ),
-			'cols'			=> 40,
-			'minimal'		=> false,
-			'wysiwyg'		=> false,
-			'wpautop'		=> false,
+			'field_id'     => null,
+			'page_id'      => null,
+			'textarea_id'  => null,
+			'media_upload' => true,
+			'rows'         => get_option( 'default_post_edit_rows', 10 ),
+			'cols'         => 40,
+			'minimal'      => false,
+			'wysiwyg'      => false,
+			'wpautop'      => false,
+			'label'        => null
 		);
 
 		// Parse the arguments.
@@ -360,7 +361,7 @@ class RockPress_Settings {
 
 		// Get the saved values from WordPress.
 		$options = get_option( $args['page_id'] );
-		$editor_value = $options[ $args['field_id'] ];
+		$editor_value = isset( $options[ $args['field_id'] ] ) ? $options[ $args['field_id'] ] : '';
 
 	    // Checks if it should display the WYSIWYG editor.
 		if ( true === $args['wysiwyg'] ) {
@@ -376,9 +377,13 @@ class RockPress_Settings {
 	    } else {
 
 			// Display the plain textarea field.
-			echo '<textarea rows="' . esc_attr( $args['rows'] ) . '" cols="' . esc_attr( $args['cols'] ) . '" name="' . esc_attr( $args['page_id'] ) . '[' . esc_attr( $args['field_id'] ) . ']" id="' . esc_attr( $args['textarea_id'] ) . '" class="rockpress code">' . esc_html( $editor_value ) . '</textarea>';
+			echo '<textarea rows="' . esc_attr( $args['rows'] ) . '" cols="' . esc_attr( $args['cols'] ) . '" name="' . esc_attr( $args['page_id'] ) . '[' . esc_attr( $args['field_id'] ) . ']" id="' . esc_attr( $args['textarea_id'] ) . '" class="rockpress large-text code">' . esc_html( $editor_value ) . '</textarea>';
 
-	    }
+		}
+		
+		if ( '' !== $args['label'] ) {
+			echo '<p class="description">' . esc_html( $args['label'] ) . '</p>';
+		}
 
 	} // textarea_callback()
 

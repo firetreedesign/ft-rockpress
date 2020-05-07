@@ -301,7 +301,7 @@ class RockPress_Admin_Pages {
 		foreach ( $help_tabs as $help_tab ) {
 			if ( $help_tab['tab_id'] === $active_tab ) {
 				$screen->add_help_tab( array(
-					'id'		=> $help_tab['tab_id'],
+					'id'		=> $help_tab['id'],
 					'title'		=> $help_tab['title'],
 					'content'	=> $help_tab['content'],
 				) );
