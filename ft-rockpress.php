@@ -3,7 +3,7 @@
  * Plugin Name: RockPress
  * Plugin URI: https://rockpresswp.com/
  * Description: Display information from Rock RMS on your WordPress site.
- * Version: 1.0.15
+ * Version: 1.0.16
  * Author: RockPress <support@rockpresswp.com>
  * Author URI: https://rockpresswp.com/
  * Text Domain: ft-rockpress
@@ -28,15 +28,15 @@ if ( ! class_exists( 'RockPress' ) ) :
 	 */
 	class RockPress {
 
-	    /**
-	     * Instance
-	     *
-	     * @var RockPress The one true RockPress
-	     * @since 1.0.0
-	     */
+		/**
+		 * Instance
+		 *
+		 * @var RockPress The one true RockPress
+		 * @since 1.0.0
+		 */
 		private static $instance;
 
-	    /**
+		/**
 		 * RockPress Transients Object
 		 *
 		 * @var object
@@ -45,11 +45,11 @@ if ( ! class_exists( 'RockPress' ) ) :
 		public $transients;
 
 		/**
-	     * Rock Object
-	     *
-	     * @var object
-	     * @since 1.0.0
-	     */
+		 * Rock Object
+		 *
+		 * @var object
+		 * @since 1.0.0
+		 */
 		public $rock;
 
 		/**
@@ -61,45 +61,45 @@ if ( ! class_exists( 'RockPress' ) ) :
 		public $get;
 
 		/**
-	     * RockPress Version
-	     *
-	     * @var string
-	     * @since 1.0.0
-	     */
-	    public $version = '1.0.15';
+		 * RockPress Version
+		 *
+		 * @var string
+		 * @since 1.0.0
+		 */
+		public $version = '1.0.15';
 
 		/**
-	     * Main RockPress Instance
-	     *
-	     * Insures that only one instance of RockPress exists in memory at any
-	     * one time.
-	     *
-	     * @since 1.0
-	     * @static
-	     * @staticvar array $instance
-	     * @uses RockPress::includes() Include the required files
-	     * @see RockPress()
-	     * @return The one true RockPress
-	     */
-	    public static function instance() {
+		 * Main RockPress Instance
+		 *
+		 * Insures that only one instance of RockPress exists in memory at any
+		 * one time.
+		 *
+		 * @since 1.0
+		 * @static
+		 * @staticvar array $instance
+		 * @uses RockPress::includes() Include the required files
+		 * @see RockPress()
+		 * @return The one true RockPress
+		 */
+		public static function instance() {
 
-	        if ( ! isset( self::$instance ) && ! ( self::$instance instanceof RockPress ) ) {
+			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof RockPress ) ) {
 
-	            self::$instance = new RockPress;
-	            self::$instance->setup_constants();
-	            self::$instance->includes();
+				self::$instance = new RockPress();
+				self::$instance->setup_constants();
+				self::$instance->includes();
 				self::$instance->actions();
 				self::$instance->register_addon();
 
-	            self::$instance->transients	= new RockPress_Transients();
-	            self::$instance->rock		= new RockPress_Rock_REST_API();
-				self::$instance->get		= new RockPress_Background_Get();
+				self::$instance->transients = new RockPress_Transients();
+				self::$instance->rock       = new RockPress_Rock_REST_API();
+				self::$instance->get        = new RockPress_Background_Get();
 
-	        }
+			}
 
-	        return self::$instance;
+			return self::$instance;
 
-	    }
+		}
 
 		/**
 		 * Setup plugin constants
@@ -111,21 +111,21 @@ if ( ! class_exists( 'RockPress' ) ) :
 		private function setup_constants() {
 
 			// Plugin Version.
-	        if ( ! defined( 'ROCKPRESS_VERSION' ) ) {
-	            define( 'ROCKPRESS_VERSION', $this->version );
-	        }
+			if ( ! defined( 'ROCKPRESS_VERSION' ) ) {
+				define( 'ROCKPRESS_VERSION', $this->version );
+			}
 
 			// Plugin File.
-	        if ( ! defined( 'ROCKPRESS_PLUGIN_FILE' ) ) {
-	            define( 'ROCKPRESS_PLUGIN_FILE', __FILE__ );
-	        }
+			if ( ! defined( 'ROCKPRESS_PLUGIN_FILE' ) ) {
+				define( 'ROCKPRESS_PLUGIN_FILE', __FILE__ );
+			}
 
-	        // Plugin Folder Path.
-	        if ( ! defined( 'ROCKPRESS_PLUGIN_DIR' ) ) {
-	            define( 'ROCKPRESS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-	        }
+			// Plugin Folder Path.
+			if ( ! defined( 'ROCKPRESS_PLUGIN_DIR' ) ) {
+				define( 'ROCKPRESS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+			}
 
-	        // Plugin Folder URL.
+			// Plugin Folder URL.
 			if ( ! defined( 'ROCKPRESS_PLUGIN_URL' ) ) {
 				define( 'ROCKPRESS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 			}
@@ -141,11 +141,13 @@ if ( ! class_exists( 'RockPress' ) ) :
 		 */
 		private function register_addon() {
 
-			$addon = new RockPress_Addon( array(
-				'controllers' => array(
-					'Campuses',
-				),
-			) );
+			$addon = new RockPress_Addon(
+				array(
+					'controllers' => array(
+						'Campuses',
+					),
+				)
+			);
 
 		}
 
@@ -159,16 +161,16 @@ if ( ! class_exists( 'RockPress' ) ) :
 		private function includes() {
 
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/class-rockpress-transients.php';
-	        require_once ROCKPRESS_PLUGIN_DIR . 'includes/class-rockpress-rest-api.php';
+			require_once ROCKPRESS_PLUGIN_DIR . 'includes/class-rockpress-rest-api.php';
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/class-rockpress-licenses.php';
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/class-rockpress-addon.php';
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/class-rockpress-options.php';
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/class-rockpress-customizer.php';
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/class-rockpress-blocks.php';
-	        require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/admin-settings.php';
-	        require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/settings/settings-rock.php';
+			require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/admin-settings.php';
+			require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/settings/settings-rock.php';
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/settings/settings-import.php';
-	        require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/settings/settings-rockpress.php';
+			require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/settings/settings-rockpress.php';
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/settings/settings-licenses.php';
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/admin-ajax.php';
 			require_once ROCKPRESS_PLUGIN_DIR . 'lib/wp-background-processing/wp-async-request.php';
@@ -179,16 +181,16 @@ if ( ! class_exists( 'RockPress' ) ) :
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/widgets/widget-service-times.php';
 			require_once ROCKPRESS_PLUGIN_DIR . 'includes/widgets/widget-campus-selector.php';
 
-	        if ( is_admin() ) {
+			if ( is_admin() ) {
 				require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/admin-page-tabs.php';
 				require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/admin-pages.php';
-	            require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/admin-scripts.php';
+				require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/admin-scripts.php';
 				require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/admin-styles.php';
 				require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/shortcodes/class-shortcode-button.php';
 				require_once ROCKPRESS_PLUGIN_DIR . 'includes/admin/shortcodes/class-shortcode-generator.php';
-	        }
+			}
 
-	    }
+		}
 
 		/**
 		 * Actions
@@ -210,7 +212,7 @@ if ( ! class_exists( 'RockPress' ) ) :
 		 * @return void
 		 */
 		public function register_styles() {
-			wp_register_style( 'rockpress', ROCKPRESS_PLUGIN_URL . 'assets/css/display.css' );
+			wp_register_style( 'rockpress', ROCKPRESS_PLUGIN_URL . 'assets/css/display.css', array(), ROCKPRESS_VERSION );
 		}
 
 		/**
