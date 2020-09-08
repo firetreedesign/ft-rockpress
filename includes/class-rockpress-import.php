@@ -2,8 +2,8 @@
 /**
  * RockPress - Import
  *
- * @since	0.2.0
- * @package	RockPress
+ * @since 0.2.0
+ * @package RockPress
  */
 
 // Exit if accessed directly.
@@ -24,14 +24,14 @@ class RockPress_Import {
 	 * @return void
 	 */
 	public static function init() {
-		add_action( 'rockpress_maintenance',				__CLASS__ . '::run' );
-		add_action( 'rockpress_import_job_queued',			__CLASS__ . '::import_job_queued' );
-		add_action( 'rockpress_import_jobs_dispatched',		__CLASS__ . '::import_jobs_dispatched' );
-		add_action( 'rockpress_background_get_complete',	__CLASS__ . '::import_complete', 1000 );
-		add_action( 'wp_ajax_rockpress_import',				__CLASS__ . '::ajax_run' );
-		add_action( 'wp_ajax_rockpress_import_status',		__CLASS__ . '::ajax_status' );
-		add_action( 'wp_ajax_rockpress_last_import',		__CLASS__ . '::ajax_last_import' );
-		add_action( 'wp_ajax_rockpress_reset_import', 		__CLASS__ . '::ajax_reset_import' );
+		add_action( 'rockpress_maintenance', __CLASS__ . '::run' );
+		add_action( 'rockpress_import_job_queued', __CLASS__ . '::import_job_queued' );
+		add_action( 'rockpress_import_jobs_dispatched', __CLASS__ . '::import_jobs_dispatched' );
+		add_action( 'rockpress_background_get_complete', __CLASS__ . '::import_complete', 1000 );
+		add_action( 'wp_ajax_rockpress_import', __CLASS__ . '::ajax_run' );
+		add_action( 'wp_ajax_rockpress_import_status', __CLASS__ . '::ajax_status' );
+		add_action( 'wp_ajax_rockpress_last_import', __CLASS__ . '::ajax_last_import' );
+		add_action( 'wp_ajax_rockpress_reset_import', __CLASS__ . '::ajax_reset_import' );
 
 	}
 
@@ -124,7 +124,7 @@ class RockPress_Import {
 	 */
 	public static function ajax_run() {
 
-		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'rockpress-nonce' ) ) {
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'rockpress-nonce' ) ) {
 			die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
 		}
 
@@ -144,25 +144,31 @@ class RockPress_Import {
 	 */
 	public static function ajax_status() {
 
-		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'rockpress-nonce' ) ) {
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'rockpress-nonce' ) ) {
 			die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
 		}
 
-		$status = array();
+		$status   = array();
 		$progress = get_option( 'rockpress_import_in_progress', false );
 
 		if ( false === $progress ) {
 			wp_send_json( 'false' );
 		}
 
-		array_push( $status, array(
-			'text' => $progress,
-			'element'	=> 'strong',
-		) );
-		array_push( $status, array(
-			'text'		=> esc_html__( 'Import is running in the background. Leaving this page will not interrupt the process.', 'ft-rockpress' ),
-			'element'	=> 'i',
-		) );
+		array_push(
+			$status,
+			array(
+				'text'    => $progress,
+				'element' => 'strong',
+			)
+		);
+		array_push(
+			$status,
+			array(
+				'text'    => esc_html__( 'Import is running in the background. Leaving this page will not interrupt the process.', 'ft-rockpress' ),
+				'element' => 'i',
+			)
+		);
 
 		wp_send_json( $status );
 
@@ -177,7 +183,7 @@ class RockPress_Import {
 	 */
 	public static function ajax_last_import() {
 
-		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'rockpress-nonce' ) ) {
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'rockpress-nonce' ) ) {
 			die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
 		}
 
@@ -198,6 +204,12 @@ class RockPress_Import {
 	 * @return void
 	 */
 	public static function ajax_reset_import() {
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'rockpress-nonce' ) ) {
+			die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
+		}
+
+		delete_option( 'rockpress_import_in_progress' );
+		delete_option( 'rockpress_current_import' );
 		delete_option( 'rockpress_last_import' );
 		esc_html_e( 'Never', 'rockpress' );
 		wp_die();
