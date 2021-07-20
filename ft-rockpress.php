@@ -3,7 +3,7 @@
  * Plugin Name: RockPress
  * Plugin URI: https://rockpresswp.com/
  * Description: Display information from Rock RMS on your WordPress site.
- * Version: 1.0.16
+ * Version: 1.0.17
  * Author: RockPress <support@rockpresswp.com>
  * Author URI: https://rockpresswp.com/
  * Text Domain: ft-rockpress
@@ -66,7 +66,7 @@ if ( ! class_exists( 'RockPress' ) ) :
 		 * @var string
 		 * @since 1.0.0
 		 */
-		public $version = '1.0.15';
+		public $version = '1.0.17';
 
 		/**
 		 * Main RockPress Instance
