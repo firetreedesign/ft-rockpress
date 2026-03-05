@@ -46,16 +46,15 @@ class RockPress_Admin_Scripts {
 	 * @return void
 	 */
 	private function enqueue() {
-
-		wp_enqueue_script( 'rockpress-admin', ROCKPRESS_PLUGIN_URL . 'assets/js/admin/admin.js' );
-
 		if ( ! isset( $_GET['page'] ) ) {
 			return;
 		}
-		if ( ! isset( $_GET['tab'] ) ) {
+		if ( 'rockpress-settings' !== $_GET['page'] ) {
 			return;
 		}
-		if ( 'rockpress-settings' !== $_GET['page'] ) {
+		wp_enqueue_script( 'rockpress-admin', ROCKPRESS_PLUGIN_URL . 'assets/js/admin/admin.js' );
+		
+		if ( ! isset( $_GET['tab'] ) ) {
 			return;
 		}
 		if ( 'import' !== $_GET['tab'] ) {
