@@ -46,16 +46,15 @@ class RockPress_Admin_Scripts {
 	 * @return void
 	 */
 	private function enqueue() {
-
-		wp_enqueue_script( 'rockpress-admin', ROCKPRESS_PLUGIN_URL . 'assets/js/admin/admin.js' );
-
 		if ( ! isset( $_GET['page'] ) ) {
 			return;
 		}
-		if ( ! isset( $_GET['tab'] ) ) {
+		if ( 'rockpress-settings' !== $_GET['page'] ) {
 			return;
 		}
-		if ( 'rockpress-settings' !== $_GET['page'] ) {
+		wp_enqueue_script( 'rockpress-admin', ROCKPRESS_PLUGIN_URL . 'assets/js/admin/admin.js' );
+		
+		if ( ! isset( $_GET['tab'] ) ) {
 			return;
 		}
 		if ( 'import' !== $_GET['tab'] ) {
@@ -85,18 +84,20 @@ class RockPress_Admin_Scripts {
 	 */
 	private function localize() {
 
-		wp_localize_script( 'rockpress-admin', 'rockpress_vars', array(
-			'nonce' => wp_create_nonce( 'rockpress-nonce' ),
-			'messages' => array(
-				'done' => __( 'Done', 'ft-rockpress' ),
-				'running' => __( 'Running...', 'ft-rockpress' ),
-				'manual_import_button' => __( 'Import Now', 'ft-rockpress' ),
-				'reset_import_button' => __( 'Reset', 'ft-rockpress' ),
-				'connection_test_button' => __( 'Run Test Now', 'ft-rockpress' ),
-				'process_running' => __( 'Process is running...', 'ft-rockpress' ),
-				'reset_import_confirmation' => __( 'Are you sure that you want to reset the last import time?', 'ft-rockpress' ),
-			),
-		) );
+		if ( wp_script_is( 'rockpress-admin', 'enqueued' ) ) {
+			wp_localize_script( 'rockpress-admin', 'rockpress_vars', array(
+				'nonce' => wp_create_nonce( 'rockpress-nonce' ),
+				'messages' => array(
+					'done' => __( 'Done', 'ft-rockpress' ),
+					'running' => __( 'Running...', 'ft-rockpress' ),
+					'manual_import_button' => __( 'Import Now', 'ft-rockpress' ),
+					'reset_import_button' => __( 'Reset', 'ft-rockpress' ),
+					'connection_test_button' => __( 'Run Test Now', 'ft-rockpress' ),
+					'process_running' => __( 'Process is running...', 'ft-rockpress' ),
+					'reset_import_confirmation' => __( 'Are you sure that you want to reset the last import time?', 'ft-rockpress' ),
+				),
+			) );
+		}
 
 		$current_user = wp_get_current_user();
 		wp_localize_script( 'rockpress-beacon', 'rockpress_beacon_vars', array(

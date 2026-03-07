@@ -31,9 +31,12 @@ class RockPress_Admin_Ajax {
 	 * @return void
 	 */
 	public function check_services() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ), '', array( 'response' => 403 ) );
+		}
 
-		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'rockpress-nonce' ) ) {
-			die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'rockpress-nonce' ) ) {
+			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ), '', array( 'response' => 403 ) );
 		}
 
 		$type = 'notice notice-error';
