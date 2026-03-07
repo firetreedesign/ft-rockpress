@@ -123,12 +123,12 @@ class RockPress_Import {
 	 * @return void
 	 */
 	public static function ajax_run() {
-		if (! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ), '', array( 'response' => 403 ) );
 		}
 
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'rockpress-nonce' ) ) {
-			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
+			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ), '', array( 'response' => 403 ) );
 		}
 
 		self::run();
@@ -146,12 +146,12 @@ class RockPress_Import {
 	 * @return void
 	 */
 	public static function ajax_status() {
-		if (! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ), '', array( 'response' => 403 ) );
 		}
 
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'rockpress-nonce' ) ) {
-			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
+			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ), '', array( 'response' => 403 ) );
 		}
 
 		$status   = array();
@@ -188,12 +188,12 @@ class RockPress_Import {
 	 * @return void
 	 */
 	public static function ajax_last_import() {
-		if (! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ), '', array( 'response' => 403 ) );
 		}
 
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'rockpress-nonce' ) ) {
-			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
+			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ), '', array( 'response' => 403 ) );
 		}
 
 		$last_import = get_option( 'rockpress_last_import', 'Never' );
@@ -213,18 +213,18 @@ class RockPress_Import {
 	 * @return void
 	 */
 	public static function ajax_reset_import() {
-		if (! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ), '', array( 'response' => 403 ) );
 		}
 
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'rockpress-nonce' ) ) {
-			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ) );
+			wp_die( esc_html__( 'Insufficient Permissions', 'ft-rockpress' ), '', array( 'response' => 403 ) );
 		}
 
 		delete_option( 'rockpress_import_in_progress' );
 		delete_option( 'rockpress_current_import' );
 		delete_option( 'rockpress_last_import' );
-		esc_html_e( 'Never', 'rockpress' );
+		esc_html_e( 'Never', 'ft-rockpress' );
 		wp_die();
 	}
 
